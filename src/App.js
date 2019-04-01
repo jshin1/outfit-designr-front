@@ -22,6 +22,14 @@ class App extends Component {
         switch(d.name) {
           case 'hat':
             return this.props.loadHats(d.clothes)
+          case 'top':
+            return this.props.loadTops(d.clothes)
+          case 'jacket':
+            return this.props.loadJackets(d.clothes)
+          case 'bottom':
+            return this.props.loadBottoms(d.clothes)
+          case 'shoes':
+            return this.props.loadShoes(d.clothes)
         }
       })
     })
@@ -58,7 +66,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadHats: (data) => dispatch({type: 'LOAD_HATS', payload: data})
+    loadHats: (data) => dispatch({type: 'LOAD_HATS', payload: data}),
+    loadTops: (data) => dispatch({type: 'LOAD_TOPS', payload: data}),
+    loadJackets: (data) => dispatch({type: 'LOAD_JACKETS', payload: data}),
+    loadBottoms: (data) => dispatch({type: 'LOAD_BOTTOMS', payload: data}),
+    loadShoes: (data) => dispatch({type: 'LOAD_SHOES', payload: data})
   }
 }
 

@@ -5,16 +5,50 @@ import ClothingTile from '../components/ClothingTile';
 
 class ClothingSection extends Component {
 
-  loadHats = () => {
-    return this.props.hats.map(h => {
-      console.log(h)
-      return (
-        <ClothingTile name={h.name}
-                      image_url={h.image_url}
-        />
-      )
-    })
+  loadClothing = () => {
+    if (this.props.hats) {
+      return this.props.hats.map(h => {
+        return <ClothingTile
+                      name={h.name}
+                      image_url={h.image_url}/>
+      })
+    } else if (this.props.tops) {
+      return this.props.tops.map(t => {
+        return <ClothingTile
+                      name={t.name}
+                      image_url={t.image_url}/>
+      })
+    } else if (this.props.jackets) {
+      return this.props.jackets.map(j => {
+        return <ClothingTile
+                      name={j.name}
+                      image_url={j.image_url}/>
+      })
+    } else if (this.props.bottoms) {
+      return this.props.bottoms.map(b => {
+        return <ClothingTile
+                      name={b.name}
+                      image_url={b.image_url}/>
+      })
+    } else if (this.props.shoes) {
+      return this.props.shoes.map(s => {
+        return <ClothingTile
+                      name={s.name}
+                      image_url={s.image_url}/>
+      })
+    }
   }
+
+  // loadHats = () => {
+  //   return this.props.hats.map(h => {
+  //     console.log(h)
+  //     return (
+  //       <ClothingTile name={h.name}
+  //                     image_url={h.image_url}
+  //       />
+  //     )
+  //   })
+  // }
 
   render() {
     console.log(this.props.hats)
@@ -22,7 +56,7 @@ class ClothingSection extends Component {
       <div className='clothing-section'>
         <h2>Hats or props</h2>
         <div className='row'>
-          {this.loadHats()}
+          {this.loadClothing()}
         </div>
       </div>
     );
@@ -40,4 +74,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, null)(ClothingSection);
+export default connect(null, null)(ClothingSection);

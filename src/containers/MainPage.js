@@ -9,11 +9,11 @@ class MainPage extends Component {
   render() {
     return (
       <div className='main-page'>
-        <ClothingSection/>
-        <ClothingSection/>
-        <ClothingSection/>
-        <ClothingSection/>
-        <ClothingSection/>
+        <ClothingSection hats={this.props.hats}/>
+        <ClothingSection tops={this.props.tops}/>
+        <ClothingSection jackets={this.props.jackets}/>
+        <ClothingSection bottoms={this.props.bottoms}/>
+        <ClothingSection shoes={this.props.shoes}/>
       </div>
     );
   }
@@ -30,10 +30,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    loadHats: (data) => dispatch({type: 'LOAD_HATS', payload: data})
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default connect(mapStateToProps, null)(MainPage);
