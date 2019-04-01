@@ -41,9 +41,13 @@ class App extends Component {
       <div className="App">
         <Router>
           <>
-          <nav>
-            <Link to='/'>Home</Link>
-            <Link to='main'>Main</Link>
+          <nav className='navbar-home'>
+            <div>Outfit Designr</div>
+            <div>
+              <Link to='/'>Home</Link>
+              <Link to='main'>Main</Link>
+            </div>
+
           </nav>
             <Route path='/' exact component={LandingPage}/>
             <Route path='/main' component={MainPage}/>

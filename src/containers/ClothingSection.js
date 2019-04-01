@@ -39,22 +39,10 @@ class ClothingSection extends Component {
     }
   }
 
-  // loadHats = () => {
-  //   return this.props.hats.map(h => {
-  //     console.log(h)
-  //     return (
-  //       <ClothingTile name={h.name}
-  //                     image_url={h.image_url}
-  //       />
-  //     )
-  //   })
-  // }
-
   render() {
     console.log(this.props.hats)
     return (
       <div className='clothing-section'>
-        <h2>Hats or props</h2>
         <div className='row'>
           {this.loadClothing()}
         </div>
