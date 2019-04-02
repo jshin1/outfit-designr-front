@@ -43,6 +43,7 @@ class ClothingSection extends Component {
     console.log(this.props.hats)
     return (
       <div className='clothing-section'>
+        <h2>{this.props.category}</h2>
         <div className='row'>
           {this.loadClothing()}
         </div>

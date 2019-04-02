@@ -5,6 +5,10 @@ $primary-white: #fff;
 
 .App {
   text-align: center;
+  background: linear-gradient(-45deg, #fff, rgba(255,255,255,0)), url('./pics/style.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 html {
@@ -15,17 +19,95 @@ body {
   font-size: 1.6rem;
 }
 
+h1 {
+  color: #fff;
+  // text-shadow: .25rem .25rem 0rem #000;
+  // letter-spacing: .2rem;
+  // -webkit-animation:colorchange 15s infinite alternate;
+}
+
+h2 {
+    // font: 2.5rem sans-serif;
+    // font-weight: bold;
+    // color: #fff;
+    // letter-spacing: .5rem;
+    text-align: center;
+    // text-transform: uppercase;
+    // text-shadow: 0 .25rem .25rem #000;
+    // text-shadow: purple;
+    margin: 0 0 2rem 0;
+
+
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+
+    color: #EE7752;
+  }
+
+  25% {
+
+    color: #E73C7E;
+  }
+
+  50% {
+
+    color: #23A6D5;
+  }
+
+  75% {
+
+    color: #23D5AB;
+  }
+
+  100% {
+
+    color: #EE7752;
+  }
+}
+
+h2.header {
+    position: relative;
+    z-index: 1;
+
+    &:before {
+        border-top: 2px solid #dfdfdf;
+        content:"";
+        margin: 0 auto; /* this centers the line to the full width specified */
+        position: absolute; /* positioning must be absolute here, and relative positioning must be applied to the parent */
+        top: 50%; left: 0; right: 0; bottom: 0;
+        width: 95%;
+        z-index: -1;
+    }
+
+    span {
+        /* to hide the lines from behind the text, you have to set the background color the same as the container */
+        background: $primary-white;
+        padding: 0 15px;
+    }
+}
+
 .navbar-home {
-  // position: fixed;
+  position: fixed;
+  top: 40%;
   z-index: 99;
+}
+
+.navbar {
+  position: fixed;
+  // color: $primary-white;
+  // padding: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: white;
-  height: 10vh;
-  box-shadow: 0 0 .5rem .1rem skyblue;
+  height: 7.5vh;
+  z-index: 99;
+  width: 100vw;
+  box-shadow: 0 0 1rem .01rem #707070;
   // width: 100%;
-  padding: 0 3rem;
+  // margin: 0 3rem;
+  // padding: 0 2rem;;
 
   background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
 background-size: 400% 400%;
@@ -33,28 +115,45 @@ background-size: 400% 400%;
 -moz-animation: Gradient 15s ease infinite;
 animation: Gradient 15s ease infinite;
 
+
+
 font-weight: bold;
 font-size: 2rem;
 color: $primary-white;
+// color: #000;
 
   a {
+    padding: 1rem;
     text-decoration: none;
     margin-left: 3rem;
     color: $primary-white;
+    // color: #000;
   }
 }
 
 ///////////////////////// LANDING PAGE /////////////////////////
 
 .landing-page {
-  height: 90vh;
-  background: linear-gradient(-45deg, #000, rgba(255,255,255,.01)), url('./pics/standingman.jpeg');
-  background-position: center;
+  height: 100vh;
+  color: #fff;
+  // background: linear-gradient(-45deg, #fff, rgba(255,255,255,.5)), url('./pics/ayy.jpeg');
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
 
-  color: $primary-white;
-  font-size: 3rem;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+background-size: 400% 400%;
+-webkit-animation: Gradient 15s ease infinite;
+-moz-animation: Gradient 15s ease infinite;
+animation: Gradient 15s ease infinite;
+
+-webkit-clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
+clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
+
+
+
+  // color: #000;
+  font-size: 2rem;
 
   display: flex;
   flex-direction: column;
@@ -63,14 +162,30 @@ color: $primary-white;
 
   h1 {
     font-size: 10rem;
+    // text-shadow: purple;
     margin: 0;
+    text-shadow: 0rem .25rem .5rem #000;
   }
+}
+
+.image-one {
+  position: fixed;
+  z-index: 999;
+  // background: linear-gradient(-45deg, #fff, rgba(255,255,255,.5)), url('./pics/ayy.jpeg');
+}
+
+.tagline {
+  // color: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
 }
 
 ///////////////////////// MAIN PAGE /////////////////////////
 
 .main-page {
+  padding: 7.5vh;
   height: 100vh;
+  background: $primary-white;
+
+
 
   // background: linear-gradient(-45deg, #fff, rgba(255,255,255,.6)), url('./pics/standingman.jpeg');
   // background-position: center;
@@ -82,18 +197,50 @@ color: $primary-white;
   // align-items: center;
   justify-content: center;
 
-  background: linear-gradient(-45deg, #fff, #efefef);
-background-size: 400% 400%;
--webkit-animation: Gradient 15s ease infinite;
--moz-animation: Gradient 15s ease infinite;
-animation: Gradient 15s ease infinite;
+//   background: linear-gradient(-45deg, #fff, #efefef);
+// background-size: 400% 400%;
+// -webkit-animation: Gradient 15s ease infinite;
+// -moz-animation: Gradient 15s ease infinite;
+// animation: Gradient 15s ease infinite;
 }
+
+.check {
+  position: absolute;
+  max-height: 25%;
+  max-width: 25%;
+  bottom: 0;
+  right: 0;
+}
+
+.clicked {
+  opacity: 1;
+}
+
+#clicked img {
+  // position: absolute;
+  // opacity: 0;
+  opacity: .5;
+}
+
+.unclicked {
+  // position: absolute;
+  opacity: 1;
+}
+
+#hi {
+  // opacity: 1;
+}
+
+// .tile.clicked {
+//   opacity: .5;
+// }
 
 
 .tile {
   position: relative;
-  box-shadow: 0 0 .5rem .01rem #c1c1c1;
+  box-shadow: 0rem .1rem .5rem .01rem #7f7f7f;
   // border: .1rem solid #000;
+  // background: rgba(255,255,255,.8);
   border-radius: .5rem;
   height: 17rem;
   width: 17rem;
@@ -102,6 +249,9 @@ animation: Gradient 15s ease infinite;
   justify-content: center;
   align-items: center;
   margin: 1rem;
+  // opacity: 0.5;
+
+
 
 
   h3 {
@@ -131,6 +281,22 @@ animation: Gradient 15s ease infinite;
   // justify-content: flex-start;
   // align-items: flex-end;
 }
+
+.tile:hover {
+  opacity: .5;
+}
+
+// .clicked {
+//   opacity: 1;
+// }
+
+.unclicked {
+  opacity: 0;
+}
+
+// .tile:hover .clicked {
+//   opacity: 1;
+// }
 
 
 

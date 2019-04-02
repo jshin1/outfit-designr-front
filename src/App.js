@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom
 import { connect } from 'react-redux';
 import LandingPage from './containers/LandingPage';
 import MainPage from './containers/MainPage';
+import Profile from './containers/Profile';
 import ClothingSection from './containers/ClothingSection';
 import ClothingTile from './components/ClothingTile';
 
@@ -12,6 +13,7 @@ import ClothingTile from './components/ClothingTile';
 class App extends Component {
 
   componentDidMount() {
+
     fetch('http://localhost:3000/api/v1/categories')
     .then(res => res.json())
     .then(data => {
@@ -37,19 +39,23 @@ class App extends Component {
 
 
   render() {
+    // this.props.loggedIn === true ? this.props.logOut : null
     return (
+
       <div className="App">
         <Router>
           <>
-          <nav className='navbar-home'>
+          <nav className={this.props.loggedIn ? 'navbar' : 'navbar-home'}>
             <div>Outfit Designr</div>
             <div>
               <Link to='/'>Home</Link>
-              <Link to='main'>Main</Link>
+              <Link to='/profile'>Profile</Link>
+              <Link to='main'>Catalog</Link>
             </div>
 
           </nav>
             <Route path='/' exact component={LandingPage}/>
+            <Route path='/profile' component={Profile}/>
             <Route path='/main' component={MainPage}/>
           </>
         </Router>
@@ -60,6 +66,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
+    loggedIn: state.loggedIn,
     hats: state.hats,
     tops: state.tops,
     jackets: state.jackets,
@@ -70,6 +77,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    logOut: dispatch({type: 'LOG_IN', payload: false}),
     loadHats: (data) => dispatch({type: 'LOAD_HATS', payload: data}),
     loadTops: (data) => dispatch({type: 'LOAD_TOPS', payload: data}),
     loadJackets: (data) => dispatch({type: 'LOAD_JACKETS', payload: data}),

@@ -1,13 +1,23 @@
 const initialState = {
+  loggedIn: false,
   hats: [],
   tops: [],
   jackets: [],
   bottoms: [],
-  shoes: []
+  shoes: [],
+  myhats: [],
+  mytops: [],
+  myjackets: [],
+  mybottoms: [],
+  myshoes: [],
 }
 
 function reducer(state=initialState, action) {
   switch(action.type) {
+    case 'LOG_IN':
+      return {...state, loggedIn: action.payload}
+    case 'LOG_OUT':
+      return {...state, loggedIn: action.payload}
     case 'LOAD_HATS':
       return {...state, hats: action.payload}
     case 'LOAD_TOPS':
