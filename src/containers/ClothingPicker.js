@@ -6,7 +6,7 @@ class ClothingPicker extends Component {
 
   showClothing = () => {
     if (this.props.category === 'hat') {
-      return <img src={this.props.myhats[0].image_url}/>
+      return <img src={this.props.myhats[this.props.idx].image_url}/>
     } else if (this.props.category === 'top') {
       return <img src={this.props.mytops[0].image_url}/>
     } else if (this.props.category === 'jacket') {
@@ -20,15 +20,15 @@ class ClothingPicker extends Component {
 
   clickHandler = () => {
     if (this.props.category === 'hat') {
-      this.props.chooseCurrent(this.props.myhats[0])
+      this.props.chooseCurrent('hat')
     } else if (this.props.category === 'top') {
-      this.props.chooseCurrent(this.props.mytops[0])
+      this.props.chooseCurrent('top')
     } else if (this.props.category === 'jacket') {
-      this.props.chooseCurrent(this.props.myjackets[0])
+      this.props.chooseCurrent('jacket')
     } else if (this.props.category === 'bottom') {
-      this.props.chooseCurrent(this.props.mybottoms[0])
+      this.props.chooseCurrent('bottom')
     } else if (this.props.category === 'shoes') {
-      this.props.chooseCurrent(this.props.myshoes[0])
+      this.props.chooseCurrent('shoes')
     }
   }
 

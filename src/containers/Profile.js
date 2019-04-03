@@ -7,8 +7,88 @@ import ClothingPicker from './ClothingPicker';
 class Profile extends Component {
 
   state = {
-    current: 'Choose a clothing article!'
+    hati: 0,
+    topi: 0,
+    jacketi: 0,
+    bottomi: 0,
+    shoesi: 0
   }
+
+  buttonClick = () => {
+
+    if (this.props.current === 'hat') {
+      return this.setState(prevState => {
+        return {
+          hati: prevState.hati + 1
+        }
+      })
+    } else if (this.props.current === 'top') {
+      return this.setState(prevState => {
+        return {
+          topi: prevState.topi + 1
+        }
+      })
+    } else if (this.props.current === 'jacket') {
+      return this.setState(prevState => {
+        return {
+          jacketi: prevState.jacketi + 1
+        }
+      })
+    } else if (this.props.current === 'bottom') {
+      return this.setState(prevState => {
+        return {
+          bottomi: prevState.bottomi + 1
+        }
+      })
+    } else if (this.props.current === 'shoes') {
+      return this.setState(prevState => {
+        return {
+          shoesi: prevState.shoesi + 1
+        }
+      })
+    }
+  }
+
+  showCurrentClothing = () => {
+    if (this.props.current === 'hat') {
+      return (
+        <div>
+          <img src={this.props.myhats[this.state.hati].image_url}/>
+          <button onClick={this.buttonClick}/>
+        </div>
+      )
+    } else if (this.props.current === 'top') {
+      return (
+        <div>
+          <img src={this.props.mytops[this.state.topi].image_url}/>
+          <button onClick={this.buttonClick}/>
+        </div>
+      )
+    } else if (this.props.current === 'jacket') {
+      return (
+        <div>
+          <img src={this.props.myjackets[this.state.jacketi].image_url}/>
+          <button onClick={this.buttonClick}/>
+        </div>
+      )
+    } else if (this.props.current === 'bottom') {
+      return (
+        <div>
+          <img src={this.props.mybottoms[this.state.bottomi].image_url}/>
+          <button onClick={this.buttonClick}/>
+        </div>
+      )
+    } else if (this.props.current === 'shoes') {
+      return (
+        <div>
+          <img src={this.props.myshoes[this.state.shoesi].image_url}/>
+          <button onClick={this.buttonClick}/>
+        </div>
+      )
+    }
+  }
+
+
 
   render() {
     return (
@@ -20,7 +100,8 @@ class Profile extends Component {
 
         <div className='current'>
           {
-            this.props.current ? <img src={this.props.current.image_url}/>
+            this.props.current ?
+            this.showCurrentClothing()
             :
             'Please select an article of clothing!'
           }
@@ -28,11 +109,21 @@ class Profile extends Component {
 
 
         <div className='picker-container'>
-        <ClothingPicker category='hat'/>
-        <ClothingPicker category='top'/>
-        <ClothingPicker category='jacket'/>
-        <ClothingPicker category='bottom'/>
-        <ClothingPicker category='shoes'/>
+        <ClothingPicker category='hat'
+                        idx={this.state.hati}
+        />
+        <ClothingPicker category='top'
+                        idx={this.state.topi}
+        />
+        <ClothingPicker category='jacket'
+                        idx={this.state.jacketi}
+        />
+        <ClothingPicker category='bottom'
+                        idx={this.state.bottomi}
+        />
+        <ClothingPicker category='shoes'
+                        idx={this.state.shoesi}
+        />
         </div>
       </div>
     );

@@ -10,7 +10,7 @@ const initialState = {
   myjackets: [],
   mybottoms: [],
   myshoes: [],
-  current: 'Please choose an article of clothing!'
+  current: false
 }
 
 function reducer(state=initialState, action) {
