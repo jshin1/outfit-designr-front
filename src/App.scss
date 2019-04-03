@@ -184,24 +184,8 @@ clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
   padding: 7.5vh;
   height: 100vh;
   background: $primary-white;
-
-
-
-  // background: linear-gradient(-45deg, #fff, rgba(255,255,255,.6)), url('./pics/standingman.jpeg');
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-
   display: flex;
-  // flex-direction: column;
-  // align-items: center;
   justify-content: center;
-
-//   background: linear-gradient(-45deg, #fff, #efefef);
-// background-size: 400% 400%;
-// -webkit-animation: Gradient 15s ease infinite;
-// -moz-animation: Gradient 15s ease infinite;
-// animation: Gradient 15s ease infinite;
 }
 
 .check {
@@ -217,13 +201,10 @@ clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
 }
 
 #clicked img {
-  // position: absolute;
-  // opacity: 0;
   opacity: .5;
 }
 
 .unclicked {
-  // position: absolute;
   opacity: 1;
 }
 
@@ -231,16 +212,9 @@ clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
   // opacity: 1;
 }
 
-// .tile.clicked {
-//   opacity: .5;
-// }
-
-
 .tile {
   position: relative;
   box-shadow: 0rem .1rem .5rem .01rem #7f7f7f;
-  // border: .1rem solid #000;
-  // background: rgba(255,255,255,.8);
   border-radius: .5rem;
   height: 17rem;
   width: 17rem;
@@ -249,10 +223,6 @@ clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
   justify-content: center;
   align-items: center;
   margin: 1rem;
-  // opacity: 0.5;
-
-
-
 
   h3 {
     position: absolute;
@@ -339,20 +309,36 @@ clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
 .profile {
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  // flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #fff;
 }
 
+.current {
+  background: violet;
+  height: 50rem;
+  width: 50rem;
+}
+
+.picker-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .clothing-picker {
   display: flex;
-  // flex-direction: column;
+  border-radius: .5rem;
+  height: 10rem;
+  width: 10rem;
+  box-shadow: 0rem .1rem .5rem .01rem #7f7f7f;
   align-items: center;
 
   img {
-    max-height: 20rem;
-    max-width: 20rem;
+    // position: relative;
+    max-height: 100%;
+    max-width: 100%;
   }
   // align-items: center;
 

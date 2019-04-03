@@ -5,16 +5,26 @@ import { connect } from 'react-redux';
 class ClothingPicker extends Component {
 
   showClothing = () => {
+    // let counter = 0
+
     if (this.props.category === 'hat') {
-      return this.props.myhats.map(h => <img src={h.image_url}/>)
+      // return
+      // (while (counter < 3 || counter < this.props.myhats.length) {
+      //   <img src={this.props.myhats[counter].image_url}/>
+      //   counter++
+      // })
+
+      return <img src={this.props.myhats[0].image_url}/>
+
+
     } else if (this.props.category === 'top') {
-      return this.props.mytops.map(t => <img src={t.image_url}/>)
+      return <img src={this.props.mytops[0].image_url}/>
     } else if (this.props.category === 'jacket') {
-      return this.props.myjackets.map(j => <img src={j.image_url}/>)
+      return <img src={this.props.myjackets[0].image_url}/>
     } else if (this.props.category === 'bottom') {
-      return this.props.mybottoms.map(b => <img src={b.image_url}/>)
+      return <img src={this.props.mybottoms[0].image_url}/>
     } else if (this.props.category === 'shoes') {
-      return this.props.myshoes.map(s => <img src={s.image_url}/>)
+      return <img src={this.props.myshoes[0].image_url}/>
     }
   }
 

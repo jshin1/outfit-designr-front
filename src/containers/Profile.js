@@ -9,11 +9,18 @@ class Profile extends Component {
   render() {
     return (
       <div className='profile'>
+        <div className='current'>
+          
+        </div>
+
+
+        <div className='picker-container'>
         <ClothingPicker category='hat'/>
         <ClothingPicker category='top'/>
         <ClothingPicker category='jacket'/>
         <ClothingPicker category='bottom'/>
         <ClothingPicker category='shoes'/>
+        </div>
       </div>
     );
   }
