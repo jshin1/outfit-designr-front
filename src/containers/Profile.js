@@ -11,9 +11,7 @@ class Profile extends Component {
     topi: 0,
     jacketi: 0,
     bottomi: 0,
-    shoesi: 0,
-    colors: ['magenta', 'red magenta', 'red', 'red orange', 'yellow', 'yellow green', 'green', 'blue green', 'cyan', 'blue', 'violet blue', 'violet'],
-    colorScheme: 'complementary'
+    shoesi: 0
   }
 
   buttonClick = () => {
@@ -99,16 +97,17 @@ class Profile extends Component {
         <div className='info'>
 
           <img src={require('../pics/colorwheel.png')} />
-
+          {'Please select how you would like to match your outfit:'}<br/><br/>
           <select>
             <option>analogous</option>
             <option>complementary</option>
             <option>triadic</option>
-          </select>
+          </select><br/>
 
-          <select>
+          {'What would you like your primary color to be?'}<br/><br/>
+          <select onChange={(event) => this.props.setPrimaryColor(event.target.value)}>
             {
-              this.state.colors.map(c => <option>{c}</option>)
+              this.props.colors.map(c => <option value={c.name}>{c.name}</option>)
             }
           </select>
         </div>
@@ -151,6 +150,7 @@ class Profile extends Component {
 function mapStateToProps(state) {
   return {
     // loggedIn: state.loggedIn,
+    colors: state.colors,
     current: state.current,
     myhats: state.myhats,
     mytops: state.mytops,
@@ -163,6 +163,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     // logOut: dispatch({type: 'LOG_IN', payload: false}),
+    setPrimaryColor: (data) => dispatch({type: 'SET_PRIMARY_COLOR', payload: data}),
     loadHats: (data) => dispatch({type: 'LOAD_HATS', payload: data}),
     loadTops: (data) => dispatch({type: 'LOAD_TOPS', payload: data}),
     loadJackets: (data) => dispatch({type: 'LOAD_JACKETS', payload: data}),

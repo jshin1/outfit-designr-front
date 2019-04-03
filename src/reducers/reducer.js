@@ -12,11 +12,18 @@ const initialState = {
   myshoes: [],
   current: false,
 
-  colors: []
+  colors: [],
+  primaryColor: 'magenta',
+  colorScheme: 'analogous'
 }
 
 function reducer(state=initialState, action) {
   switch(action.type) {
+
+    case 'SET_PRIMARY_COLOR':
+      return {...state, primaryColor: action.payload}
+    case 'SET_COLOR_SCHEME':
+      return {...state, colorScheme: action.payload}
 
     case 'SET_COLORS':
       return {...state, colors: [...state.colors, action.payload]}

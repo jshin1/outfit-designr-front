@@ -317,10 +317,15 @@ clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
 }
 
 .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0rem .1rem .5rem .01rem #7f7f7f;
-  height: 70rem;
-  width: 35rem;
+  height: 75vh;
+  width: 35vh;
   margin: 2rem;
+  // padding: 2rem;
 
   img {
     margin: 2rem;
@@ -332,8 +337,8 @@ clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
   // background: violet;
   border-radius: .5rem;
   box-shadow: 0rem .1rem .5rem .01rem #7f7f7f;
-  height: 70rem;
-  width: 70rem;
+  height: 75vh;
+  width: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -353,8 +358,8 @@ clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
 .clothing-picker {
   display: flex;
   border-radius: .5rem;
-  height: 12.5rem;
-  width: 12.5rem;
+  height: 13vh;
+  width: 13vh;
   margin: 1rem 2rem;
   box-shadow: 0rem .1rem .5rem .01rem #7f7f7f;
   align-items: center;
