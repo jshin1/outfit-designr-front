@@ -11,7 +11,9 @@ class Profile extends Component {
     topi: 0,
     jacketi: 0,
     bottomi: 0,
-    shoesi: 0
+    shoesi: 0,
+    colors: ['magenta', 'red magenta', 'red', 'red orange', 'yellow', 'yellow green', 'green', 'blue green', 'cyan', 'blue', 'violet blue', 'violet'],
+    colorScheme: 'complementary'
   }
 
   buttonClick = () => {
@@ -95,8 +97,23 @@ class Profile extends Component {
       <div className='profile'>
 
         <div className='info'>
-          hi
+
+          <img src={require('../pics/colorwheel.png')} />
+
+          <select>
+            <option>analogous</option>
+            <option>complementary</option>
+            <option>triadic</option>
+          </select>
+
+          <select>
+            {
+              this.state.colors.map(c => <option>{c}</option>)
+            }
+          </select>
         </div>
+
+
 
         <div className='current'>
           {

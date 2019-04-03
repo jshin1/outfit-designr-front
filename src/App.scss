@@ -321,6 +321,11 @@ clip-path: polygon(0 40%, 100% 20%, 100% 60%, 0 80%);
   height: 70rem;
   width: 35rem;
   margin: 2rem;
+
+  img {
+    margin: 2rem;
+    max-width: 75%;
+  }
 }
 
 .current {

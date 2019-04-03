@@ -10,11 +10,16 @@ const initialState = {
   myjackets: [],
   mybottoms: [],
   myshoes: [],
-  current: false
+  current: false,
+
+  colors: []
 }
 
 function reducer(state=initialState, action) {
   switch(action.type) {
+
+    case 'SET_COLORS':
+      return {...state, colors: [...state.colors, action.payload]}
 
     case 'CHOOSE_CURRENT':
       return {...state, current: action.payload}

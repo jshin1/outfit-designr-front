@@ -35,6 +35,14 @@ class App extends Component {
         }
       })
     })
+
+    fetch('http://localhost:3000/api/v1/colors')
+    .then(res => res.json())
+    .then(colors => {
+      colors.map(c => {
+        this.props.setColors(c)
+      })
+    })
   }
 
 
@@ -78,6 +86,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     // logOut: dispatch({type: 'LOG_IN', payload: false}),
+    setColors: (data) => dispatch({type: 'SET_COLORS', payload: data}),
     loadHats: (data) => dispatch({type: 'LOAD_HATS', payload: data}),
     loadTops: (data) => dispatch({type: 'LOAD_TOPS', payload: data}),
     loadJackets: (data) => dispatch({type: 'LOAD_JACKETS', payload: data}),
