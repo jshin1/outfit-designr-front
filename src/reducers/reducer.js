@@ -10,10 +10,15 @@ const initialState = {
   myjackets: [],
   mybottoms: [],
   myshoes: [],
+  current: 'Please choose an article of clothing!'
 }
 
 function reducer(state=initialState, action) {
   switch(action.type) {
+
+    case 'CHOOSE_CURRENT':
+      return {...state, current: action.payload}
+
     case 'LOG_IN':
       return {...state, loggedIn: action.payload}
     case 'LOG_OUT':

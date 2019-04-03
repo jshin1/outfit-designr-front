@@ -6,11 +6,24 @@ import ClothingPicker from './ClothingPicker';
 
 class Profile extends Component {
 
+  state = {
+    current: 'Choose a clothing article!'
+  }
+
   render() {
     return (
       <div className='profile'>
+
+        <div className='info'>
+          hi
+        </div>
+
         <div className='current'>
-          
+          {
+            this.props.current ? <img src={this.props.current.image_url}/>
+            :
+            'Please select an article of clothing!'
+          }
         </div>
 
 
@@ -30,6 +43,7 @@ class Profile extends Component {
 function mapStateToProps(state) {
   return {
     // loggedIn: state.loggedIn,
+    current: state.current,
     myhats: state.myhats,
     mytops: state.mytops,
     myjackets: state.myjackets,
