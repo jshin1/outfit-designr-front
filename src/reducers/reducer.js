@@ -5,13 +5,21 @@ const initialState = {
   jackets: [],
   bottoms: [],
   shoes: [],
+
   myhats: [],
   mytops: [],
   myjackets: [],
   mybottoms: [],
   myshoes: [],
-  current: false,
 
+  filteredhats: [],
+  filteredtops: [],
+  filteredjackets: [],
+  filteredbottoms: [],
+  filteredshoes: [],
+
+  current: 'hat',
+  // currentClothes: [],
   colors: [],
   primaryColor: 'magenta',
   colorScheme: 'analogous'
@@ -59,6 +67,17 @@ function reducer(state=initialState, action) {
       return {...state, mybottoms: [...state.mybottoms, action.payload]}
     case 'ADD_SHOES':
       return {...state, myshoes: [...state.myshoes, action.payload]}
+
+    case 'FILTER_HAT':
+      return {...state, filteredhats: action.payload}
+    case 'FILTER_TOP':
+      return {...state, filteredtops: action.payload}
+    case 'FILTER_JACKET':
+      return {...state, filteredjackets: action.payload}
+    case 'FILTER_BOTTOM':
+      return {...state, filteredbottoms: action.payload}
+    case 'FILTER_SHOES':
+      return {...state, filteredshoes: action.payload}
 
 
     default:

@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 class ClothingPicker extends Component {
 
-
   filterClothes = () => {
     let color = this.props.colors.find(c => c.name === this.props.primaryColor)
 
@@ -15,7 +14,56 @@ class ClothingPicker extends Component {
         return 'No matching hats..'
       }
       else {
-        return <img src={filtered[this.props.idx].image_url} />
+        this.props.filterHat(filtered)
+        return <img src={filtered[this.props.idx].image_url} onClick={this.clickHandler}/>
+      }
+
+
+    } else if (this.props.category === 'top') {
+      let filtered = this.props.mytops.filter(t => t.color_id === color.id || t.color_id === 17 || t.color_id === 18 || t.color_id === 19)
+
+      if (filtered.length === 0) {
+        return 'No matching tops..'
+      }
+      else {
+        this.props.filterTop(filtered)
+        return <img src={filtered[this.props.idx].image_url} onClick={this.clickHandler}/>
+      }
+
+
+    } else if (this.props.category === 'jacket') {
+      let filtered = this.props.myjackets.filter(j => j.color_id === color.id || j.color_id === 17 || j.color_id === 18 || j.color_id === 19)
+
+      if (filtered.length === 0) {
+        return 'No matching jackets..'
+      }
+      else {
+        this.props.filterJacket(filtered)
+        return <img src={filtered[this.props.idx].image_url} onClick={this.clickHandler}/>
+      }
+
+
+    } else if (this.props.category === 'bottom') {
+      let filtered = this.props.mybottoms.filter(b => b.color_id === color.id || b.color_id === 17 || b.color_id === 18 || b.color_id === 19)
+
+      if (filtered.length === 0) {
+        return 'No matching bottoms..'
+      }
+      else {
+        this.props.filterBottom(filtered)
+        return <img src={filtered[this.props.idx].image_url} onClick={this.clickHandler}/>
+      }
+
+
+    } else if (this.props.category === 'shoes') {
+      let filtered = this.props.myshoes.filter(s => s.color_id === color.id || s.color_id === 17 || s.color_id === 18 || s.color_id === 19)
+
+      if (filtered.length === 0) {
+        return 'No matching shoes..'
+      }
+      else {
+        this.props.filterShoes(filtered)
+        return <img src={filtered[this.props.idx].image_url} onClick={this.clickHandler}/>
       }
     }
     // } else if (this.props.category === 'top') {
@@ -31,19 +79,19 @@ class ClothingPicker extends Component {
 
 
 
-  showClothing = () => {
-    if (this.props.category === 'hat') {
-      return <img src={this.props.myhats[this.props.idx].image_url}/>
-    } else if (this.props.category === 'top') {
-      return <img src={this.props.mytops[this.props.idx].image_url}/>
-    } else if (this.props.category === 'jacket') {
-      return <img src={this.props.myjackets[this.props.idx].image_url}/>
-    } else if (this.props.category === 'bottom') {
-      return <img src={this.props.mybottoms[this.props.idx].image_url}/>
-    } else if (this.props.category === 'shoes') {
-      return <img src={this.props.myshoes[this.props.idx].image_url}/>
-    }
-  }
+  // showClothing = () => {
+  //   if (this.props.category === 'hat') {
+  //     return <img src={this.props.myhats[this.props.idx].image_url}/>
+  //   } else if (this.props.category === 'top') {
+  //     return <img src={this.props.mytops[this.props.idx].image_url}/>
+  //   } else if (this.props.category === 'jacket') {
+  //     return <img src={this.props.myjackets[this.props.idx].image_url}/>
+  //   } else if (this.props.category === 'bottom') {
+  //     return <img src={this.props.mybottoms[this.props.idx].image_url}/>
+  //   } else if (this.props.category === 'shoes') {
+  //     return <img src={this.props.myshoes[this.props.idx].image_url}/>
+  //   }
+  // }
 
   clickHandler = () => {
     if (this.props.category === 'hat') {
@@ -61,9 +109,8 @@ class ClothingPicker extends Component {
 
   render() {
     return (
-      <div className='clothing-picker' onClick={this.clickHandler}>
+      <div className='clothing-picker'>
       {this.filterClothes()}
-      {this.showClothing()}
       </div>
     );
   }
@@ -86,6 +133,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     chooseCurrent: (data) => dispatch({type: 'CHOOSE_CURRENT', payload: data}),
+    filterHat: (data) => dispatch({type: 'FILTER_HAT', payload: data}),
+    filterTop: (data) => dispatch({type: 'FILTER_TOP', payload: data}),
+    filterJacket: (data) => dispatch({type: 'FILTER_JACKET', payload: data}),
+    filterBottom: (data) => dispatch({type: 'FILTER_BOTTOM', payload: data}),
+    filterShoes: (data) => dispatch({type: 'FILTER_SHOES', payload: data})
   }
 }
 

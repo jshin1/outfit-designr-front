@@ -51,40 +51,62 @@ class Profile extends Component {
 
   showCurrentClothing = () => {
     if (this.props.current === 'hat') {
-      return (
-        <div>
-          <img src={this.props.myhats[this.state.hati].image_url}/>
-          <button onClick={this.buttonClick}/>
-        </div>
-      )
+      console.log(this.props.filteredhats)
+
+      if (this.props.filteredhats.length === 0) {
+        return 'No matching hat.'
+      } else {
+        return (
+          <div>
+            <img src={this.props.filteredhats[this.state.hati].image_url}/>
+            <button onClick={this.buttonClick}/>
+          </div>
+        )
+      }
     } else if (this.props.current === 'top') {
-      return (
-        <div>
-          <img src={this.props.mytops[this.state.topi].image_url}/>
-          <button onClick={this.buttonClick}/>
-        </div>
-      )
+      if (this.props.filteredtops.length === 0) {
+        return 'No matching top.'
+      } else {
+        return (
+          <div>
+            <img src={this.props.filteredtops[this.state.topi].image_url}/>
+            <button onClick={this.buttonClick}/>
+          </div>
+        )
+      }
     } else if (this.props.current === 'jacket') {
-      return (
-        <div>
-          <img src={this.props.myjackets[this.state.jacketi].image_url}/>
-          <button onClick={this.buttonClick}/>
-        </div>
-      )
+      if (this.props.filteredjackets.length === 0) {
+        return 'No matching jacket.'
+      } else {
+        return (
+          <div>
+            <img src={this.props.filteredjackets[this.state.jacketi].image_url}/>
+            <button onClick={this.buttonClick}/>
+          </div>
+        )
+      }
     } else if (this.props.current === 'bottom') {
-      return (
-        <div>
-          <img src={this.props.mybottoms[this.state.bottomi].image_url}/>
-          <button onClick={this.buttonClick}/>
-        </div>
-      )
+      if (this.props.filteredbottoms.length === 0) {
+        return 'No matching bottoms'
+      } else {
+        return (
+          <div>
+            <img src={this.props.filteredbottoms[this.state.bottomi].image_url}/>
+            <button onClick={this.buttonClick}/>
+          </div>
+        )
+      }
     } else if (this.props.current === 'shoes') {
-      return (
-        <div>
-          <img src={this.props.myshoes[this.state.shoesi].image_url}/>
-          <button onClick={this.buttonClick}/>
-        </div>
-      )
+      if (this.props.filteredshoes.length === 0) {
+        return 'No matching shoes.'
+      } else {
+        return (
+          <div>
+            <img src={this.props.filteredshoes[this.state.shoesi].image_url}/>
+            <button onClick={this.buttonClick}/>
+          </div>
+        )
+      }
     }
   }
 
@@ -156,7 +178,12 @@ function mapStateToProps(state) {
     mytops: state.mytops,
     myjackets: state.myjackets,
     mybottoms: state.mybottoms,
-    myshoes: state.myshoes
+    myshoes: state.myshoes,
+    filteredhats: state.filteredhats,
+    filteredtops: state.filteredtops,
+    filteredjackets: state.filteredjackets,
+    filteredbottoms: state.filteredbottoms,
+    filteredshoes: state.filteredshoes
   }
 }
 
