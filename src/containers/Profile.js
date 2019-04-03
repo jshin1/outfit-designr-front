@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
+import ClothingPicker from './ClothingPicker';
+
 class Profile extends Component {
 
   render() {
     return (
-      <div></div>
+      <div className='profile'>
+        <ClothingPicker category='hat'/>
+        <ClothingPicker category='top'/>
+        <ClothingPicker category='jacket'/>
+        <ClothingPicker category='bottom'/>
+        <ClothingPicker category='shoes'/>
+      </div>
     );
   }
 
@@ -14,7 +22,7 @@ class Profile extends Component {
 
 function mapStateToProps(state) {
   return {
-    loggedIn: state.loggedIn,
+    // loggedIn: state.loggedIn,
     myhats: state.myhats,
     mytops: state.mytops,
     myjackets: state.myjackets,
@@ -25,7 +33,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    logOut: dispatch({type: 'LOG_IN', payload: false}),
+    // logOut: dispatch({type: 'LOG_IN', payload: false}),
     loadHats: (data) => dispatch({type: 'LOAD_HATS', payload: data}),
     loadTops: (data) => dispatch({type: 'LOAD_TOPS', payload: data}),
     loadJackets: (data) => dispatch({type: 'LOAD_JACKETS', payload: data}),

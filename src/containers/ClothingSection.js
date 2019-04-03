@@ -8,33 +8,23 @@ class ClothingSection extends Component {
   loadClothing = () => {
     if (this.props.hats) {
       return this.props.hats.map(h => {
-        return <ClothingTile
-                      name={h.name}
-                      image_url={h.image_url}/>
+        return <ClothingTile clothing={h}/>
       })
     } else if (this.props.tops) {
       return this.props.tops.map(t => {
-        return <ClothingTile
-                      name={t.name}
-                      image_url={t.image_url}/>
+        return <ClothingTile clothing={t}/>
       })
     } else if (this.props.jackets) {
       return this.props.jackets.map(j => {
-        return <ClothingTile
-                      name={j.name}
-                      image_url={j.image_url}/>
+        return <ClothingTile clothing={j}/>
       })
     } else if (this.props.bottoms) {
       return this.props.bottoms.map(b => {
-        return <ClothingTile
-                      name={b.name}
-                      image_url={b.image_url}/>
+        return <ClothingTile clothing={b}/>
       })
     } else if (this.props.shoes) {
       return this.props.shoes.map(s => {
-        return <ClothingTile
-                      name={s.name}
-                      image_url={s.image_url}/>
+        return <ClothingTile clothing={s}/>
       })
     }
   }

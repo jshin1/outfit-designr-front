@@ -77,7 +77,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    logOut: dispatch({type: 'LOG_IN', payload: false}),
+    // logOut: dispatch({type: 'LOG_IN', payload: false}),
     loadHats: (data) => dispatch({type: 'LOAD_HATS', payload: data}),
     loadTops: (data) => dispatch({type: 'LOAD_TOPS', payload: data}),
     loadJackets: (data) => dispatch({type: 'LOAD_JACKETS', payload: data}),
