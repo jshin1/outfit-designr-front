@@ -120,10 +120,10 @@ class Profile extends Component {
 
           <img src={require('../pics/colorwheel.png')} />
           {'Please select how you would like to match your outfit:'}<br/><br/>
-          <select>
-            <option>analogous</option>
-            <option>complementary</option>
-            <option>triadic</option>
+          <select onChange={(event) => this.props.setColorScheme(event.target.value)}>
+            <option value='analogous'>analogous</option>
+            <option value='complementary'>complementary</option>
+            <option value='triadic'>triadic</option>
           </select><br/>
 
           {'What would you like your primary color to be?'}<br/><br/>
@@ -191,6 +191,7 @@ function mapDispatchToProps(dispatch) {
   return {
     // logOut: dispatch({type: 'LOG_IN', payload: false}),
     setPrimaryColor: (data) => dispatch({type: 'SET_PRIMARY_COLOR', payload: data}),
+    setColorScheme: (data) => dispatch({type: 'SET_COLOR_SCHEME', payload: data}),
     loadHats: (data) => dispatch({type: 'LOAD_HATS', payload: data}),
     loadTops: (data) => dispatch({type: 'LOAD_TOPS', payload: data}),
     loadJackets: (data) => dispatch({type: 'LOAD_JACKETS', payload: data}),
