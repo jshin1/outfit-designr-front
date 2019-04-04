@@ -22,7 +22,7 @@ const initialState = {
   // currentClothes: [],
   colors: [],
   primaryColor: 'magenta',
-  colorScheme: 'analogous'
+  colorScheme: 'complementary'
 }
 
 function reducer(state=initialState, action) {

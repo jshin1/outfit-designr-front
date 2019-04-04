@@ -4,8 +4,9 @@ import './App.scss';
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LandingPage from './containers/LandingPage';
-import MainPage from './containers/MainPage';
 import Profile from './containers/Profile';
+import MainPage from './containers/MainPage';
+import DesignPortal from './containers/DesignPortal';
 import ClothingSection from './containers/ClothingSection';
 import ClothingTile from './components/ClothingTile';
 
@@ -58,12 +59,14 @@ class App extends Component {
             <div>
               <Link to='/'>Home</Link>
               <Link to='/profile'>Profile</Link>
+              <Link to='/portal'>Design Portal</Link>
               <Link to='main'>Catalog</Link>
             </div>
 
           </nav>
             <Route path='/' exact component={LandingPage}/>
-            <Route path='/profile' component={Profile}/>
+            <Route path='/profile' exact component={Profile}/>
+            <Route path='/portal' component={DesignPortal}/>
             <Route path='/main' component={MainPage}/>
           </>
         </Router>
