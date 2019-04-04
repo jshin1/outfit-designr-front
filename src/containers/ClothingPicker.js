@@ -22,6 +22,12 @@ class ClothingPicker extends Component {
         let color3 = this.props.colors.find(c => c.name === colorArr[2])
         let color4 = this.props.colors.find(c => c.name === colorArr[3])
         filtered = this.props.myhats.filter(h => h.color_id === color.id || h.color_id === color1.id || h.color_id === color2.id || h.color_id === color3.id || h.color_id === color4.id || h.color_id === 14 || h.color_id === 15 || h.color_id === 16)
+
+      } else if (this.props.colorScheme === 'triadic') {
+        let colorArr = color.triadic_colors.split(',')
+        let color1 = this.props.colors.find(c => c.name === colorArr[0])
+        let color2 = this.props.colors.find(c => c.name === colorArr[1])
+        filtered = this.props.myhats.filter(h => h.color_id === color.id || h.color_id === color1.id || h.color_id === color2.id || h.color_id === 14 || h.color_id === 15 || h.color_id === 16)
       }
 
       if (filtered.length === 0) {
@@ -46,6 +52,12 @@ class ClothingPicker extends Component {
         let color3 = this.props.colors.find(c => c.name === colorArr[2])
         let color4 = this.props.colors.find(c => c.name === colorArr[3])
         filtered = this.props.mytops.filter(t => t.color_id === color.id || t.color_id === color1.id || t.color_id === color2.id || t.color_id === color3.id || t.color_id === color4.id || t.color_id === 14 || t.color_id === 15 || t.color_id === 16)
+
+      } else if (this.props.colorScheme === 'triadic') {
+        let colorArr = color.triadic_colors.split(',')
+        let color1 = this.props.colors.find(c => c.name === colorArr[0])
+        let color2 = this.props.colors.find(c => c.name === colorArr[1])
+        filtered = this.props.mytops.filter(t => t.color_id === color.id || t.color_id === color1.id || t.color_id === color2.id || t.color_id === 14 || t.color_id === 15 || t.color_id === 16)
       }
       if (filtered.length === 0) {
         return 'No matching tops'
@@ -67,6 +79,12 @@ class ClothingPicker extends Component {
         let color3 = this.props.colors.find(c => c.name === colorArr[2])
         let color4 = this.props.colors.find(c => c.name === colorArr[3])
         filtered = this.props.myjackets.filter(j => j.color_id === color.id || j.color_id === color1.id || j.color_id === color2.id || j.color_id === color3.id || j.color_id === color4.id || j.color_id === 14 || j.color_id === 15 || j.color_id === 16)
+
+      } else if (this.props.colorScheme === 'triadic') {
+        let colorArr = color.triadic_colors.split(',')
+        let color1 = this.props.colors.find(c => c.name === colorArr[0])
+        let color2 = this.props.colors.find(c => c.name === colorArr[1])
+        filtered = this.props.myjackets.filter(j => j.color_id === color.id || j.color_id === color1.id || j.color_id === color2.id || j.color_id === 14 || j.color_id === 15 || j.color_id === 16)
       }
       if (filtered.length === 0) {
         return 'No matching jackets'
@@ -83,13 +101,19 @@ class ClothingPicker extends Component {
         let compColor = this.props.colors.find(c => c.name === color.complementary_color)
         filtered = this.props.mybottoms.filter(b => b.color_id === color.id || b.color_id === compColor.id ||b.color_id === 14 || b.color_id === 15 || b.color_id === 16)
       } else if (this.props.colorScheme === 'analogous') {
-      let colorArr = color.analogous_colors.split(',')
-      let color1 = this.props.colors.find(c => c.name === colorArr[0])
-      let color2 = this.props.colors.find(c => c.name === colorArr[1])
-      let color3 = this.props.colors.find(c => c.name === colorArr[2])
-      let color4 = this.props.colors.find(c => c.name === colorArr[3])
-      filtered = this.props.mybottoms.filter(b => b.color_id === color.id || b.color_id === color1.id || b.color_id === color2.id || b.color_id === color3.id || b.color_id === color4.id || b.color_id === 14 || b.color_id === 15 || b.color_id === 16)
-    }
+        let colorArr = color.analogous_colors.split(',')
+        let color1 = this.props.colors.find(c => c.name === colorArr[0])
+        let color2 = this.props.colors.find(c => c.name === colorArr[1])
+        let color3 = this.props.colors.find(c => c.name === colorArr[2])
+        let color4 = this.props.colors.find(c => c.name === colorArr[3])
+        filtered = this.props.mybottoms.filter(b => b.color_id === color.id || b.color_id === color1.id || b.color_id === color2.id || b.color_id === color3.id || b.color_id === color4.id || b.color_id === 14 || b.color_id === 15 || b.color_id === 16)
+
+      } else if (this.props.colorScheme === 'triadic') {
+        let colorArr = color.triadic_colors.split(',')
+        let color1 = this.props.colors.find(c => c.name === colorArr[0])
+        let color2 = this.props.colors.find(c => c.name === colorArr[1])
+        filtered = this.props.mybottoms.filter(b => b.color_id === color.id || b.color_id === color1.id || b.color_id === color2.id || b.color_id === 14 || b.color_id === 15 || b.color_id === 16)
+      }
       if (filtered.length === 0) {
         return 'No matching bottoms'
       }
@@ -104,6 +128,7 @@ class ClothingPicker extends Component {
       if (this.props.colorScheme === 'complementary') {
         let compColor = this.props.colors.find(c => c.name === color.complementary_color)
         filtered = this.props.myshoes.filter(s => s.color_id === color.id || s.color_id === compColor.id || s.color_id === 14 || s.color_id === 15 || s.color_id === 16)
+
       } else if (this.props.colorScheme === 'analogous') {
         let colorArr = color.analogous_colors.split(',')
         let color1 = this.props.colors.find(c => c.name === colorArr[0])
@@ -111,6 +136,12 @@ class ClothingPicker extends Component {
         let color3 = this.props.colors.find(c => c.name === colorArr[2])
         let color4 = this.props.colors.find(c => c.name === colorArr[3])
         filtered = this.props.myshoes.filter(s => s.color_id === color.id || s.color_id === color1.id || s.color_id === color2.id || s.color_id === color3.id || s.color_id === color4.id || s.color_id === 14 || s.color_id === 15 || s.color_id === 16)
+
+      } else if (this.props.colorScheme === 'triadic') {
+        let colorArr = color.triadic_colors.split(',')
+        let color1 = this.props.colors.find(c => c.name === colorArr[0])
+        let color2 = this.props.colors.find(c => c.name === colorArr[1])
+        filtered = this.props.myshoes.filter(s => s.color_id === color.id || s.color_id === color1.id || s.color_id === color2.id || s.color_id === 14 || s.color_id === 15 || s.color_id === 16)
       }
       if (filtered.length === 0) {
         return 'No matching shoes'
