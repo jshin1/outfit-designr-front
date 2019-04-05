@@ -5,7 +5,7 @@ $primary-white: #fff;
 
 .App {
   text-align: center;
-  background: linear-gradient(-45deg, #fff, rgba(255,255,255,0)), url('./pics/style.jpeg');
+  background: linear-gradient(-45deg, #fff, rgba(255,255,255,0)), url('./pics/sitting.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -141,7 +141,7 @@ color: $primary-white;
   background-repeat: no-repeat;
   background-size: cover;
 
-  background: linear-gradient(-45deg, rgba(238, 119, 82, .75), rgba(231, 60, 126, .75), rgba(35, 166, 213, .75), rgba(35, 213, 171, .75));
+  background: linear-gradient(-45deg, rgba(238, 119, 82, .7), rgba(231, 60, 126, .7), rgba(35, 166, 213, .7), rgba(35, 213, 171, .7));
 background-size: 400% 400%;
 -webkit-animation: Gradient 15s ease infinite;
 -moz-animation: Gradient 15s ease infinite;
@@ -154,6 +154,7 @@ animation: Gradient 15s ease infinite;
 
   // color: #000;
   font-size: 2rem;
+  // padding: 0 0 15rem 0;
 
   display: flex;
   // flex-direction: column;
@@ -170,12 +171,12 @@ animation: Gradient 15s ease infinite;
 }
 
 .landing-page-bar {
-  // background: rgba(255,255,255, .25);
-  background: $primary-white;
-  box-shadow: 0 0 1rem .01rem #707070;
+  background: rgba(255,255,255, .25);
+  // background: $primary-white;
+  box-shadow: 0 0 1rem .01rem #fff;
   position: fixed;
   top:0;
-  height: 7.5vh;
+  height: 8rem;
   width: 100vw;
 
   display: flex;
@@ -199,11 +200,49 @@ animation: Gradient 15s ease infinite;
 
     button {
       font-size: 1.5rem;
-      height: 2.5rem;
+      height: 3rem;
       width: 7.5rem;
       margin: 1rem;
     }
   }
+}
+
+.signup {
+  border-radius: .5rem;
+  background: rgba(255,255,255, .25);
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 35rem;
+  font-size: 1.75rem;
+
+  .tagline {
+    font-size: 2rem;
+  }
+
+  .agreement {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  input {
+    height: 2.5rem;
+    margin: .5rem 0;
+  }
+
+  button {
+    height: 3rem;
+    font-size: 1.75rem;
+  }
+}
+
+.sitemap {
+  background: rgba(255,255,255, .25);
+  position: fixed;
+  bottom: 0;
+  height: 15rem;
+  width: 100vw;
 }
 
 .image-one {
