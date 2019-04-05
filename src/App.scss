@@ -1,6 +1,8 @@
 ///////////////////////// VARIABLES /////////////////////////
 
 $primary-white: #fff;
+$light-grey: #E5E5E5;
+$dark-grey: #727272;
 
 
 .App {
@@ -21,6 +23,9 @@ body {
 
 h1 {
   color: #fff;
+  color: #F6F8FA;
+  // color: $dark-grey;
+  // color: #DDDFE1;
   // text-shadow: .25rem .25rem 0rem #000;
   // letter-spacing: .2rem;
   // -webkit-animation:colorchange 15s infinite alternate;
@@ -166,14 +171,18 @@ animation: Gradient 15s ease infinite;
     font-size: 6rem;
     // text-shadow: purple;
     margin: 0;
-    text-shadow: 0rem .15rem .3rem #000;
+    text-shadow: .1rem .3rem .3rem #000;
   }
 }
 
 .landing-page-bar {
   background: rgba(255,255,255, .25);
+  background: $light-grey;
+  background: rgba(229, 229, 229, .8);
+  background: #F6F8FA;
+  // background: rgba(246, 248, 250, .7);
   // background: $primary-white;
-  box-shadow: 0 0 1rem .01rem #fff;
+  box-shadow: 0 0rem .5rem .01rem $dark-grey;
   position: fixed;
   top:0;
   height: 8rem;
@@ -196,6 +205,8 @@ animation: Gradient 15s ease infinite;
       height: 2.5rem;
       width: 20rem;
       margin: 1rem;
+      border-radius: .25rem;
+
     }
 
     button {
@@ -203,19 +214,29 @@ animation: Gradient 15s ease infinite;
       height: 3rem;
       width: 7.5rem;
       margin: 1rem;
+      border-radius: .5rem;
     }
   }
 }
 
 .signup {
   border-radius: .5rem;
-  background: rgba(255,255,255, .25);
+  color: $dark-grey;
+  box-shadow: 0 .3rem 1rem .01rem #fff;
+  // box-shadow: 0 0 .5rem .01rem $dark-grey;
+  // background: rgba(255,255,255, .25);
+  background: $light-grey;
+  // background: rgba(229, 229, 229, .8);
+  // background: rgba(246, 248, 250, .9);
+  // background: #F6F8FA;
+  background: #F6F8FA;
   padding: 5rem;
   display: flex;
   flex-direction: column;
   text-align: left;
   width: 35rem;
   font-size: 1.75rem;
+  // font-weight: bold;
 
   .tagline {
     font-size: 2rem;
@@ -224,11 +245,13 @@ animation: Gradient 15s ease infinite;
   .agreement {
     text-align: center;
     font-size: 1.5rem;
+    // font-weight: 400;
   }
 
   input {
     height: 2.5rem;
     margin: .5rem 0;
+    border-radius: .25rem;
   }
 
   button {
@@ -238,7 +261,13 @@ animation: Gradient 15s ease infinite;
 }
 
 .sitemap {
-  background: rgba(255,255,255, .25);
+  // box-shadow: 0 0 1rem .01rem $dark-grey;
+  box-shadow: 0 0 .5rem .01rem #fff;
+  color: $dark-grey;
+  // background: rgba(255,255,255, .25);
+  // background: $light-grey;
+  // background: rgba(229, 229, 229, .8);
+  background: rgba(246, 248, 250, .7);
   position: fixed;
   bottom: 0;
   height: 15rem;
