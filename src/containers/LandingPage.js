@@ -6,10 +6,16 @@ class LandingPage extends Component {
     return (
       <div className='landing-page'>
         <div className='image-one'></div>
-        <h1>Outfit Designr</h1>
-        <div className='tagline'>Creating a timeless outfit is easy. We'll show you how.</div>
+        <div className='tagline'>{"Creating a timeless outfit is easy. We'll show you how."}</div>
+        <div className='landing-page-bar'>
+          <h1>Outfit Designr</h1>
 
-        <div>
+          <div className='login'>
+            <input placeholder='Username'></input>
+            <input placeholder='Password'></input>
+            <button>Sign In</button>
+          </div>
+
 
         </div>
       </div>

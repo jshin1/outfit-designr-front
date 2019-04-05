@@ -114,7 +114,7 @@ class DesignPortal extends Component {
 
   render() {
     return (
-      <div className='profile'>
+      <div className='design-portal'>
 
         <div className='info'>
 
