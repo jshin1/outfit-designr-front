@@ -1,5 +1,8 @@
 const initialState = {
   loggedIn: false,
+  user: null,
+
+
   hats: [],
   tops: [],
   jackets: [],
@@ -27,6 +30,9 @@ const initialState = {
 
 function reducer(state=initialState, action) {
   switch(action.type) {
+
+    case 'SET_USER':
+      return {...state, user: action.payload}
 
     case 'SET_PRIMARY_COLOR':
       return {...state, primaryColor: action.payload}

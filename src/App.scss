@@ -7,8 +7,8 @@ $dark-grey: #727272;
 
 .App {
   text-align: center;
-  background: linear-gradient(-45deg, #fff, rgba(255,255,255,0)), url('./pics/sitting.jpeg');
-  background-position: center;
+  background: linear-gradient(-45deg, #fff, rgba(255,255,255,0)), url('./pics/sherpa.jpeg');
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -146,7 +146,7 @@ color: $primary-white;
   background-repeat: no-repeat;
   background-size: cover;
 
-  background: linear-gradient(-45deg, rgba(238, 119, 82, .7), rgba(231, 60, 126, .7), rgba(35, 166, 213, .7), rgba(35, 213, 171, .7));
+  background: linear-gradient(-45deg, rgba(238, 119, 82, .5), rgba(231, 60, 126, .5), rgba(35, 166, 213, .5), rgba(35, 213, 171, .5));
 background-size: 400% 400%;
 -webkit-animation: Gradient 15s ease infinite;
 -moz-animation: Gradient 15s ease infinite;
@@ -180,7 +180,7 @@ animation: Gradient 15s ease infinite;
   background: $light-grey;
   background: rgba(229, 229, 229, .8);
   background: #F6F8FA;
-  // background: rgba(246, 248, 250, .7);
+  // background: rgba(246, 248, 250, .5);
   // background: $primary-white;
   box-shadow: 0 0rem .5rem .01rem $dark-grey;
   position: fixed;
@@ -498,8 +498,26 @@ animation: Gradient 15s ease infinite;
 .profile {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #fff;
 
+  .personal {
+
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+
+    .personal-desc {
+      background: violet;
+      width: 50vw;
+    }
+
+    img {
+      max-height: 25rem;
+      border-radius: 50%;
+    }
+  }
 }
