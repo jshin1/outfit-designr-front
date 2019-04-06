@@ -6,8 +6,11 @@ import Profile from './Profile';
 class LandingPage extends Component {
 
   state = {
+    firstName: null,
+    lastName: null,
     username: null,
-    password: null
+    password: null,
+    bio: null
   }
 
   // signIn = () => {
@@ -26,12 +29,34 @@ class LandingPage extends Component {
   //   })
   // }
 
-  handleSubmit = e => {
+  handleSignUp = (e) => {
+    fetch("http://localhost:3000/api/v1/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        first_name: this.state.firstName,
+        last_name: this.state.lastName,
+        username: this.state.username.trim(),
+        password: this.state.password,
+        bio: this.state.bio,
+        avatar: 'https://group55.co.uk/wp-content/uploads/2017/09/ICACHEF1.jpg'
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      return this.handleLogin()
+    })
+  }
+
+  handleLogin = e => {
     // this.setState({
     //   loading: true
     // })
 
-    e.preventDefault()
+    // e.preventDefault()
     fetch("http://localhost:3000/api/v1/login", {
       method: "POST",
       headers: {
@@ -73,26 +98,28 @@ class LandingPage extends Component {
               <div className='login'>
                 <input onChange={(event) => this.setState({username: event.target.value})} placeholder='Username'></input>
                 <input onChange={(event) => this.setState({password: event.target.value})} type='password' name='password' placeholder='Password'></input>
-                <button onClick={this.handleSubmit}>Sign In</button>
+                <button onClick={this.handleLogin}>Sign In</button>
               </div>
             </div>
 
             <div className='signup'>
               <div className='tagline'>{"Creating a timeless outfit is easy. We'll show you how."}</div><br/>
               First name
-              <input></input><br/>
+              <input onChange={(event) => this.setState({firstName: event.target.value})}></input><br/>
               Last name
-              <input></input><br/>
+              <input onChange={(event) => this.setState({lastName: event.target.value})}></input><br/>
               Username
-              <input></input><br/>
+              <input onChange={(event) => this.setState({username: event.target.value})}></input><br/>
               Password
-              <input type='password' name='password'></input><br/>
+              <input type='password' name='password' onChange={(event) => this.setState({password: event.target.value})}></input><br/>
+              {'Bio (tell us something about yourself!)'}
+              <input onChange={(event) => this.setState({bio: event.target.value})}></input><br/>
 
               <div className='agreement'>
                 {"By clicking 'Join Now', you agree to be awesome."}
               </div><br/>
 
-              <button>Join Now</button>
+            <button onClick={this.handleSignUp}>Join Now</button>
             </div>
 
             <div className='sitemap'>
