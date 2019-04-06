@@ -14,6 +14,40 @@ class DesignPortal extends Component {
     shoesi: 0
   }
 
+  // saveOutfit = () => {
+  //   fetch("http://localhost:3000/api/v1/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "Accept": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       username: this.state.username.trim(),
+  //       password: this.state.password
+  //     })
+  //   })
+  // }
+
+  save = () => {
+  const outfit = [this.props.filteredhats[this.state.hati].id]
+
+  fetch('http://localhost:3000/api/v1/outfits', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        occasion_id: 2,
+        user_id: this.props.user.id,
+        clothes: outfit
+      })
+    })
+  .then(res=>res.json())
+  .then(data => console.log(data))
+}
+
+
   buttonClick = () => {
 
     if (this.props.current === 'hat') {
@@ -57,9 +91,10 @@ class DesignPortal extends Component {
         return 'No matching hat.'
       } else {
         return (
-          <div>
+          <div className='current-item'>
+            <button className='prev' onClick={this.buttonClick}>Previous</button>
             <img src={this.props.filteredhats[this.state.hati].image_url}/>
-            <button onClick={this.buttonClick}/>
+            <button className='next' onClick={this.buttonClick}>Next</button>
           </div>
         )
       }
@@ -68,9 +103,10 @@ class DesignPortal extends Component {
         return 'No matching top.'
       } else {
         return (
-          <div>
+          <div className='current-item'>
+            <button className='prev' onClick={this.buttonClick}>Previous</button>
             <img src={this.props.filteredtops[this.state.topi].image_url}/>
-            <button onClick={this.buttonClick}/>
+            <button className='next' onClick={this.buttonClick}>Next</button>
           </div>
         )
       }
@@ -79,9 +115,10 @@ class DesignPortal extends Component {
         return 'No matching jacket.'
       } else {
         return (
-          <div>
+          <div className='current-item'>
+            <button className='prev' onClick={this.buttonClick}>Previous</button>
             <img src={this.props.filteredjackets[this.state.jacketi].image_url}/>
-            <button onClick={this.buttonClick}/>
+            <button className='next' onClick={this.buttonClick}>Next</button>
           </div>
         )
       }
@@ -90,9 +127,10 @@ class DesignPortal extends Component {
         return 'No matching bottoms'
       } else {
         return (
-          <div>
+          <div className='current-item'>
+            <button className='prev' onClick={this.buttonClick}>Previous</button>
             <img src={this.props.filteredbottoms[this.state.bottomi].image_url}/>
-            <button onClick={this.buttonClick}/>
+            <button className='next' onClick={this.buttonClick}>Next</button>
           </div>
         )
       }
@@ -101,9 +139,10 @@ class DesignPortal extends Component {
         return 'No matching shoes.'
       } else {
         return (
-          <div>
+          <div className='current-item'>
+            <button className='prev' onClick={this.buttonClick}>Previous</button>
             <img src={this.props.filteredshoes[this.state.shoesi].image_url}/>
-            <button onClick={this.buttonClick}/>
+            <button className='next' onClick={this.buttonClick}>Next</button>
           </div>
         )
       }
@@ -132,6 +171,8 @@ class DesignPortal extends Component {
               this.props.colors.map(c => <option value={c.name}>{c.name}</option>)
             }
           </select>
+
+          <button onClick={this.save}>Save Outfit</button>
         </div>
 
 
@@ -172,6 +213,7 @@ class DesignPortal extends Component {
 function mapStateToProps(state) {
   return {
     // loggedIn: state.loggedIn,
+    user: state.user,
     colors: state.colors,
     current: state.current,
     myhats: state.myhats,

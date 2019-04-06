@@ -54,10 +54,9 @@ class App extends Component {
       <div className="App">
         <Router>
           <>
-          <nav className={this.props.loggedIn ? 'navbar' : 'navbar-home'}>
-            <div>Outfit Designr</div>
+          <nav className='navbar'>
+            <Link to='/'><h1>Outfit Designr</h1></Link>
             <div>
-              <Link to='/'>Home</Link>
               <Link to='/profile'>Profile</Link>
               <Link to='/portal'>Design Portal</Link>
               <Link to='main'>Catalog</Link>

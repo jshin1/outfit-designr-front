@@ -40,8 +40,8 @@ class ClothingTile extends Component {
 
   render() {
     return (
-      <div className='tile' id={this.state.className} onClick={(e) => this.clickHandler(e)}>
-        <div className={`check ${this.state.className}`} id='hi'><img src={require('../pics/check.png')}/></div>
+      <div className='tile' id={this.props.allSelected ? 'clicked' : this.state.className} onClick={(e) => this.clickHandler(e)}>
+        <div className={`check ${this.props.allSelected ? 'clicked' : this.state.className}`} id='hi'><img src={require('../pics/check.png')}/></div>
         <h3>{this.props.clothing.name}</h3>
         <img src={this.props.clothing.image_url} alt={this.props.clothing.name}></img>
       </div>
@@ -50,20 +50,18 @@ class ClothingTile extends Component {
 
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     // loggedIn: state.loggedIn,
-//     myhats: state.myhats,
-//     mytops: state.mytops,
-//     myjackets: state.myjackets,
-//     mybottoms: state.mybottoms,
-//     myshoes: state.myshoes
-//   }
-// }
+function mapStateToProps(state) {
+  return {
+    // loggedIn: state.loggedIn,
+    allSelected: state.allSelected
+  }
+}
 
 function mapDispatchToProps(dispatch) {
   return {
     // logOut: dispatch({type: 'LOG_IN', payload: false}),
+
+
     addHat: (data) => dispatch({type: 'ADD_HAT', payload: data}),
     addTop: (data) => dispatch({type: 'ADD_TOP', payload: data}),
     addJacket: (data) => dispatch({type: 'ADD_JACKET', payload: data}),
@@ -72,4 +70,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ClothingTile);
+export default connect(mapStateToProps, mapDispatchToProps)(ClothingTile);

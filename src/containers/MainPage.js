@@ -12,9 +12,20 @@ class MainPage extends Component {
     }
   }
 
+  selectAll = () => {
+    this.props.selectAll()
+    this.props.SelectAllHats(this.props.hats)
+    this.props.SelectAllTops(this.props.tops)
+    this.props.SelectAllJackets(this.props.jackets)
+    this.props.SelectAllBottoms(this.props.bottoms)
+    this.props.SelectAllShoes(this.props.shoes)
+    console.log(this.props.hats)
+  }
+
   render() {
     return (
       <div className='main-page'>
+        <button onClick={this.selectAll}>Select All</button>
         <ClothingSection hats={this.props.hats}
                          category='Hats'
         />
@@ -51,7 +62,13 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    logIn: () => dispatch({type: 'LOG_IN', payload: true})
+    logIn: () => dispatch({type: 'LOG_IN', payload: true}),
+    selectAll: () => dispatch({type: 'SELECT_ALL', payload: true}),
+    SelectAllHats: (data) => dispatch({type: 'SELECT_ALL_HATS', payload: data}),
+    SelectAllTops: (data) => dispatch({type: 'SELECT_ALL_TOPS', payload: data}),
+    SelectAllJackets: (data) => dispatch({type: 'SELECT_ALL_JACKETS', payload: data}),
+    SelectAllBottoms: (data) => dispatch({type: 'SELECT_ALL_BOTTOMS', payload: data}),
+    SelectAllShoes: (data) => dispatch({type: 'SELECT_ALL_SHOES', payload: data})
   }
 }
 

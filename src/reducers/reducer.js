@@ -1,6 +1,7 @@
 const initialState = {
   loggedIn: false,
   user: null,
+  allSelected: false,
 
 
   hats: [],
@@ -30,6 +31,9 @@ const initialState = {
 
 function reducer(state=initialState, action) {
   switch(action.type) {
+
+    case 'SELECT_ALL':
+      return {...state, allSelected: action.payload}
 
     case 'SET_USER':
       return {...state, user: action.payload}
@@ -73,6 +77,18 @@ function reducer(state=initialState, action) {
       return {...state, mybottoms: [...state.mybottoms, action.payload]}
     case 'ADD_SHOES':
       return {...state, myshoes: [...state.myshoes, action.payload]}
+
+      case 'SELECT_ALL_HATS':
+        return {...state, myhats: action.payload}
+      case 'SELECT_ALL_TOPS':
+        return {...state, mytops: action.payload}
+      case 'SELECT_ALL_JACKETS':
+        return {...state, myjackets: action.payload}
+      case 'SELECT_ALL_BOTTOMS':
+        return {...state, mybottoms: action.payload}
+      case 'SELECT_ALL_SHOES':
+        return {...state, myshoes: action.payload}
+
 
     case 'FILTER_HAT':
       return {...state, filteredhats: action.payload}

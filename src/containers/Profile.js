@@ -4,6 +4,16 @@ import { connect } from 'react-redux';
 
 class Profile extends Component {
 
+  showSavedOutfits = () => {
+    fetch('http://localhost:3000/api/v1/outfits')
+    .then(res => res.json())
+    .then(data => {
+      let outfits = data.filter(outfit => outfit.user_id === this.props.user.id)
+      console.log(data)
+      console.log(this.props.user.id)
+    })
+  }
+
   render() {
     return (
       <div className='profile'>
@@ -11,13 +21,14 @@ class Profile extends Component {
         <div className='personal'>
           <img src={this.props.user.avatar} />
           <div className='personal-desc'>
-            {`${this.props.user.first_name} ${this.props.user.last_name}`}
+            <h2>{`${this.props.user.first_name} ${this.props.user.last_name}`}</h2>
             {`${this.props.user.bio}`}
           </div>
         </div>
 
         <div className='gallery'>
-          saved outfits
+          <h3>Saved Outfits</h3>
+          {this.showSavedOutfits()}
         </div>
 
       </div>
