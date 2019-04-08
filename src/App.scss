@@ -252,11 +252,22 @@ animation: Gradient 15s ease infinite;
 ///////////////////////// MAIN PAGE /////////////////////////
 
 .main-page {
+  position: relative;
   padding: 7.5vh;
   height: 100vh;
   background: $primary-white;
   display: flex;
   justify-content: center;
+
+  button {
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    height: 5rem;
+    width: 15rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 }
 
 .check {
@@ -534,5 +545,14 @@ animation: Gradient 15s ease infinite;
       max-height: 25rem;
       border-radius: 50%;
     }
+  }
+}
+
+.gallery {
+
+  border: .1rem solid #000;
+
+  img {
+    max-height: 10rem;
   }
 }

@@ -22,6 +22,8 @@ const initialState = {
   filteredbottoms: [],
   filteredshoes: [],
 
+  myoutfits: [],
+
   current: 'hat',
   // currentClothes: [],
   colors: [],
@@ -31,6 +33,9 @@ const initialState = {
 
 function reducer(state=initialState, action) {
   switch(action.type) {
+
+    case 'MY_OUTFITS':
+      return {...state, myoutfits: action.payload}
 
     case 'SELECT_ALL':
       return {...state, allSelected: action.payload}

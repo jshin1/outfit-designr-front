@@ -4,13 +4,24 @@ import { connect } from 'react-redux';
 
 class Profile extends Component {
 
-  showSavedOutfits = () => {
+  componentDidMount() {
     fetch('http://localhost:3000/api/v1/outfits')
     .then(res => res.json())
     .then(data => {
       let outfits = data.filter(outfit => outfit.user_id === this.props.user.id)
-      console.log(data)
-      console.log(this.props.user.id)
+      let collection = []
+      outfits.map(outfit => collection.push(outfit.clothes))
+      this.props.setOutfit(collection)
+    })
+  }
+
+  showSavedOutfits = () => {
+    return this.props.myoutfits.map(outfit => {
+      return(
+        <div>
+          {outfit.map(clothing => <img src={clothing.image_url} />)}
+        </div>
+      )
     })
   }
 
@@ -39,13 +50,14 @@ class Profile extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user,
+    myoutfits: state.myoutfits
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    // logOut: dispatch({type: 'LOG_IN', payload: false}),
+    setOutfit: (data) => dispatch({type: 'MY_OUTFITS', payload: data})
     // loadShoes: (data) => dispatch({type: 'LOAD_SHOES', payload: data})
   }
 }
