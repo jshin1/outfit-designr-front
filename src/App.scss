@@ -6,6 +6,7 @@ $dark-grey: #727272;
 
 
 .App {
+  // padding-top: 8rem;
   text-align: center;
   background: linear-gradient(-45deg, #fff, rgba(255,255,255,0)), url('./pics/sherpa.jpeg');
   background-position: bottom;
@@ -24,10 +25,10 @@ body {
 h1 {
   // color: #fff;
   color: #F6F8FA;
-  font-size: 5rem;
+  font-size: 4.5rem;
   margin: 0;
   padding: 0;
-  text-shadow: .1rem .3rem .3rem #000;
+  text-shadow: 0rem .1rem .2rem #000;
 }
 
 h2 {
@@ -62,6 +63,16 @@ h2.header {
   z-index: 99;
 }
 
+.navbar:after{
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: calc(100% - 4px);
+	height: 50%;
+	background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+}
+
 .navbar {
   position: fixed;
 
@@ -71,16 +82,19 @@ h2.header {
   height: 8rem;
   z-index: 99;
   width: 100vw;
-  box-shadow: 0 0 1rem .01rem #707070;
+  // border-bottom: .01rem solid $dark-grey;
+  box-shadow: 0 0 1rem .1rem $dark-grey;
   // width: 100%;
   // margin: 0 3rem;
   // padding: 0 2rem;;
 
-  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-background-size: 400% 400%;
--webkit-animation: Gradient 15s ease infinite;
--moz-animation: Gradient 15s ease infinite;
-animation: Gradient 15s ease infinite;
+//   background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+// background-size: 400% 400%;
+// -webkit-animation: Gradient 15s ease infinite;
+// -moz-animation: Gradient 15s ease infinite;
+// animation: Gradient 15s ease infinite;
+background: #0084FF;
+// background: linear-gradient(#0084FF,#000);
 
 
 
@@ -98,9 +112,13 @@ color: $primary-white;
   a {
     // padding: 1rem;
     // padding: 0;
+    // background: violet;
+    // padding: 1rem 0;
+    // height: 100%;
     text-decoration: none;
     margin: 3rem;
     color: $primary-white;
+    z-index: 999;
     // color: #000;
   }
 }
@@ -115,7 +133,7 @@ color: $primary-white;
   background-repeat: no-repeat;
   background-size: cover;
 
-  background: linear-gradient(-45deg, rgba(238, 119, 82, .5), rgba(231, 60, 126, .5), rgba(35, 166, 213, .5), rgba(35, 213, 171, .5));
+  // background: linear-gradient(-45deg, rgba(238, 119, 82, .5), rgba(231, 60, 126, .5), rgba(35, 166, 213, .5), rgba(35, 213, 171, .5));
 background-size: 400% 400%;
 -webkit-animation: Gradient 15s ease infinite;
 -moz-animation: Gradient 15s ease infinite;
@@ -139,29 +157,36 @@ animation: Gradient 15s ease infinite;
 
 }
 
+.landing-page-bar:after{
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: calc(100% - 4px);
+	height: 50%;
+	background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+}
+
 .landing-page-bar {
-  background: rgba(255,255,255, .25);
-  background: $light-grey;
-  background: rgba(229, 229, 229, .8);
-  background: #F6F8FA;
-  // background: rgba(246, 248, 250, .5);
-  // background: $primary-white;
-  box-shadow: 0 0rem .5rem .01rem $dark-grey;
+  background: #0084FF;
+  // box-shadow: 0 0rem .1rem .01rem #fff;
   position: fixed;
   top:0;
   height: 8rem;
   width: 100vw;
 
   display: flex;
-  // align-items: center;
+  align-items: center;
   justify-content: space-around;
   z-index: 999000;
 
   .login {
     display: flex;
     // font-size: 5rem;
+    // background: #fff;
     align-items: center;
     justify-content: center;
+    z-index: 10;
     // background: skyblue;
     // width: 50vw;
 
@@ -188,13 +213,8 @@ animation: Gradient 15s ease infinite;
   border-radius: .5rem;
   color: $dark-grey;
   box-shadow: 0 .3rem 1rem .01rem #fff;
-  // box-shadow: 0 0 .5rem .01rem $dark-grey;
-  // background: rgba(255,255,255, .25);
-  background: $light-grey;
-  // background: rgba(229, 229, 229, .8);
-  // background: rgba(246, 248, 250, .9);
-  // background: #F6F8FA;
   background: #F6F8FA;
+
   padding: 5rem;
   display: flex;
   flex-direction: column;
@@ -255,7 +275,7 @@ animation: Gradient 15s ease infinite;
   position: relative;
   padding: 7.5vh;
   height: 100vh;
-  background: $primary-white;
+  background: #e9ebee;
   display: flex;
   justify-content: center;
 
@@ -296,6 +316,7 @@ animation: Gradient 15s ease infinite;
 
 .tile {
   position: relative;
+  background: $primary-white;
   box-shadow: 0rem .1rem .5rem .01rem #7f7f7f;
   border-radius: .5rem;
   height: 17rem;
@@ -398,7 +419,7 @@ animation: Gradient 15s ease infinite;
   // flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background: #e9ebee;
 
   // button {
   //   // position: absolute;
@@ -428,6 +449,7 @@ animation: Gradient 15s ease infinite;
   height: 75vh;
   width: 35vh;
   margin: 2rem;
+  background: $primary-white;
   // padding: 2rem;
 
   img {
@@ -438,7 +460,7 @@ animation: Gradient 15s ease infinite;
 
 .current {
   // position: relative;
-  // background: violet;
+  background: $primary-white;
   border-radius: .5rem;
   box-shadow: 0rem .1rem .5rem .01rem #7f7f7f;
   height: 75vh;
@@ -497,6 +519,7 @@ animation: Gradient 15s ease infinite;
   box-shadow: 0rem .1rem .5rem .01rem #7f7f7f;
   align-items: center;
   justify-content: center;
+  background: $primary-white;
 
   img {
     // position: relative;
@@ -515,27 +538,36 @@ animation: Gradient 15s ease infinite;
 .profile {
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: #e9ebee;
+  // margin-right: 5rem;
+  // justify-content: space-around;
 
   .personal {
-    // position: relative;
-    display: flex;
-    flex-direction: column;
+    // box-shadow: 0 .1rem .5rem 0rem $dark-grey;
+    margin-right: 3rem;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // padding: 1rem;
+    // background: $primary-white;
+
+    // display: flex;
+    // align-items: center;
     // justify-content: center;
-    align-items: center;
 
     .personal-desc {
       position: relative;
       top: -2rem;
       display: flex;
       flex-direction: column;
+      // padding: 1rem;
       // background: violet;
-      border: .25rem solid $dark-grey;
+      // border: .25rem solid $dark-grey;
       // box-shadow: 0 .1rem .1rem $dark-grey;
-      width: 50vw;
+      // width: 50vw;
       padding: 3rem;
       border-radius: .5rem;
     }
@@ -550,7 +582,73 @@ animation: Gradient 15s ease infinite;
 
 .gallery {
 
-  border: .1rem solid #000;
+  color: white;
+  border-width: 3px;
+  border-style: solid;
+  border-image:
+    linear-gradient(
+      to bottom,
+      #0084FF,
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+
+
+  position: relative;
+  // border-radius: .5rem;
+  // box-shadow: 0 .1rem .5rem 0rem #fff;
+  // background: $primary-white;
+  padding: 3rem 1rem 1rem 1rem;
+  overflow-y: scroll;
+  max-height: 75vh;
+  width: 75rem;
+
+  h3 {
+    color: $dark-grey;
+    // background: #fff;
+    position: absolute;
+    top: 1rem;
+    margin: 0;
+  }
+
+  .outfit {
+    position: relative;
+    background: $primary-white;
+    border: .1rem solid rgba(114, 114, 114, .5);
+    box-shadow: 0 .1rem .5rem 0rem $dark-grey;
+    margin: 2rem;
+    border-radius: .5rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+
+    .clothing {
+      // margin: .5rem;
+      // background: violet;
+      height: 10rem;
+      width: 10rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .trash {
+      // background: #fff;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 4rem;
+      margin: 1rem;
+    }
+
+    .trash:hover {
+      cursor: pointer;
+    }
+  }
 
   img {
     max-height: 10rem;

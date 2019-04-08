@@ -121,10 +121,6 @@ class LandingPage extends Component {
 
             <button onClick={this.handleSignUp}>Join Now</button>
             </div>
-
-            <div className='sitemap'>
-            Sitemap
-            </div>
           </div>
         }
       </div>

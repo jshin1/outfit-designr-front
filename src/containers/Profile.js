@@ -18,12 +18,19 @@ class Profile extends Component {
   showSavedOutfits = () => {
     return this.props.myoutfits.map(outfit => {
       return(
-        <div>
-          {outfit.map(clothing => <img src={clothing.image_url} />)}
+        <div className='outfit'>
+          {outfit.map(clothing => <div className='clothing'><img src={clothing.image_url} /></div>)}
+          <img className='trash' src={require('../pics/trash.png')}/>
         </div>
       )
     })
   }
+
+  deleteOutfit = (number) => {
+    fetch(`http://localhost:3000/api/v1/outfits/${number}`, {
+        method: 'DELETE'
+      })
+    }
 
   render() {
     return (
@@ -32,7 +39,7 @@ class Profile extends Component {
         <div className='personal'>
           <img src={this.props.user.avatar} />
           <div className='personal-desc'>
-            <h2>{`${this.props.user.first_name} ${this.props.user.last_name}`}</h2>
+            <h2>{`Hi, ${this.props.user.first_name} ${this.props.user.last_name}!`}</h2>
             {`${this.props.user.bio}`}
           </div>
         </div>
