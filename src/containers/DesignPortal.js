@@ -14,20 +14,6 @@ class DesignPortal extends Component {
     shoesi: 0
   }
 
-  // saveOutfit = () => {
-  //   fetch("http://localhost:3000/api/v1/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Accept": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       username: this.state.username.trim(),
-  //       password: this.state.password
-  //     })
-  //   })
-  // }
-
   save = () => {
   const outfit = [this.props.filteredhats[this.state.hati].id, this.props.filteredtops[this.state.topi].id, this.props.filteredjackets[this.state.jacketi].id, this.props.filteredbottoms[this.state.bottomi].id, this.props.filteredshoes[this.state.shoesi].id]
 
@@ -47,41 +33,142 @@ class DesignPortal extends Component {
   .then(data => console.log(data))
 }
 
+goBack = (array) => {
+    let lastIdx = (array.length - 1)
+    if (this.props.hatIndex === 0) {
+      this.props.setHatIndex(lastIdx)
+    } else {
+      this.props.decreaseHatIndex()
+    }
+  }
 
-  buttonClick = () => {
-
-    if (this.props.current === 'hat') {
-      return this.setState(prevState => {
+goPrev = () => {
+  if (this.props.current === 'hat') {
+    if (this.state.hati === 0) {
+      this.setState({
+        hati: this.props.filteredhats.length - 1
+      })
+    } else {
+      this.setState(prevState => {
         return {
-          hati: prevState.hati + 1
+          hati: prevState.hati - 1
         }
       })
-    } else if (this.props.current === 'top') {
-      return this.setState(prevState => {
+    }
+  } else if (this.props.current === 'top') {
+    if (this.state.topi === 0) {
+      this.setState({
+        topi: this.props.filteredtops.length - 1
+      })
+    } else {
+      this.setState(prevState => {
         return {
-          topi: prevState.topi + 1
+          topi: prevState.topi - 1
         }
       })
-    } else if (this.props.current === 'jacket') {
-      return this.setState(prevState => {
+    }
+  } else if (this.props.current === 'jacket') {
+    if (this.state.jacketi === 0) {
+      this.setState({
+        jacketi: this.props.filteredjackets.length - 1
+      })
+    } else {
+      this.setState(prevState => {
         return {
-          jacketi: prevState.jacketi + 1
+          jacketi: prevState.jacketi - 1
         }
       })
-    } else if (this.props.current === 'bottom') {
-      return this.setState(prevState => {
+    }
+  } else if (this.props.current === 'bottom') {
+    if (this.state.bottomi === 0) {
+      this.setState({
+        bottomi: this.props.filteredbottoms.length - 1
+      })
+    } else {
+      this.setState(prevState => {
         return {
-          bottomi: prevState.bottomi + 1
+          bottomi: prevState.bottomi - 1
         }
       })
-    } else if (this.props.current === 'shoes') {
-      return this.setState(prevState => {
+    }
+  } else if (this.props.current === 'shoes') {
+    if (this.state.shoesi === 0) {
+      this.setState({
+        shoesi: this.props.filteredshoes.length - 1
+      })
+    } else {
+      this.setState(prevState => {
         return {
-          shoesi: prevState.shoesi + 1
+          shoesi: prevState.shoesi - 1
         }
       })
     }
   }
+}
+
+goNext = () => {
+    if (this.props.current === 'hat') {
+      if (this.state.hati === this.props.filteredhats.length - 1) {
+        this.setState({
+          hati: 0
+        })
+      } else {
+        this.setState(prevState => {
+          return {
+            hati: prevState.hati + 1
+          }
+        })
+      }
+    } else if (this.props.current === 'top') {
+      if (this.state.topi === this.props.filteredtops.length - 1) {
+        this.setState({
+          topi: 0
+        })
+      } else {
+        this.setState(prevState => {
+          return {
+            topi: prevState.topi + 1
+          }
+        })
+      }
+    } else if (this.props.current === 'jacket') {
+      if (this.state.jacketi === this.props.filteredjackets.length - 1) {
+        this.setState({
+          jacketi: 0
+        })
+      } else {
+        this.setState(prevState => {
+          return {
+            jacketi: prevState.jacketi + 1
+          }
+        })
+      }
+    } else if (this.props.current === 'bottom') {
+      if (this.state.bottomi === this.props.filteredbottoms.length - 1) {
+        this.setState({
+          bottomi: 0
+        })
+      } else {
+        this.setState(prevState => {
+          return {
+            bottomi: prevState.bottomi + 1
+          }
+        })
+      }
+    } else if (this.props.current === 'shoes') {
+      if (this.state.shoesi === this.props.filteredshoes.length - 1) {
+        this.setState({
+          shoesi: 0
+        })
+      } else {
+        this.setState(prevState => {
+          return {
+            shoesi: prevState.shoesi + 1
+          }
+        })
+      }
+  }
+}
 
   showCurrentClothing = () => {
     if (this.props.current === 'hat') {
@@ -92,9 +179,9 @@ class DesignPortal extends Component {
       } else {
         return (
           <div className='current-item'>
-            <button className='prev' onClick={this.buttonClick}>Previous</button>
+            <button className='prev' onClick={this.goPrev}>Previous</button>
             <img src={this.props.filteredhats[this.state.hati].image_url}/>
-            <button className='next' onClick={this.buttonClick}>Next</button>
+            <button className='next' onClick={this.goNext}>Next</button>
           </div>
         )
       }
@@ -104,9 +191,9 @@ class DesignPortal extends Component {
       } else {
         return (
           <div className='current-item'>
-            <button className='prev' onClick={this.buttonClick}>Previous</button>
+            <button className='prev' onClick={this.goPrev}>Previous</button>
             <img src={this.props.filteredtops[this.state.topi].image_url}/>
-            <button className='next' onClick={this.buttonClick}>Next</button>
+            <button className='next' onClick={this.goNext}>Next</button>
           </div>
         )
       }
@@ -116,9 +203,9 @@ class DesignPortal extends Component {
       } else {
         return (
           <div className='current-item'>
-            <button className='prev' onClick={this.buttonClick}>Previous</button>
+            <button className='prev' onClick={this.goPrev}>Previous</button>
             <img src={this.props.filteredjackets[this.state.jacketi].image_url}/>
-            <button className='next' onClick={this.buttonClick}>Next</button>
+            <button className='next' onClick={this.goNext}>Next</button>
           </div>
         )
       }
@@ -128,9 +215,9 @@ class DesignPortal extends Component {
       } else {
         return (
           <div className='current-item'>
-            <button className='prev' onClick={this.buttonClick}>Previous</button>
+            <button className='prev' onClick={this.goPrev}>Previous</button>
             <img src={this.props.filteredbottoms[this.state.bottomi].image_url}/>
-            <button className='next' onClick={this.buttonClick}>Next</button>
+            <button className='next' onClick={this.goNext}>Next</button>
           </div>
         )
       }
@@ -140,16 +227,14 @@ class DesignPortal extends Component {
       } else {
         return (
           <div className='current-item'>
-            <button className='prev' onClick={this.buttonClick}>Previous</button>
+            <button className='prev' onClick={this.goPrev}>Previous</button>
             <img src={this.props.filteredshoes[this.state.shoesi].image_url}/>
-            <button className='next' onClick={this.buttonClick}>Next</button>
+            <button className='next' onClick={this.goNext}>Next</button>
           </div>
         )
       }
     }
   }
-
-
 
   render() {
     return (
@@ -170,7 +255,7 @@ class DesignPortal extends Component {
             {
               this.props.colors.map(c => <option value={c.name}>{c.name}</option>)
             }
-          </select>
+          </select><br/><br/>
 
           <button onClick={this.save}>Save Outfit</button>
         </div>
