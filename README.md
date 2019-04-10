@@ -15,3 +15,7 @@ https://github.com/jshin1/Outfit-Designr-API
 ## Link to Video Demo
 
 https://www.youtube.com/watch?v=ZTa_RSZKAps
+
+## Try on Heroku!
+
+http://outfit-designr.herokuapp.com/
