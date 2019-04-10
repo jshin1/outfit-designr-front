@@ -29,10 +29,10 @@ class LandingPage extends Component {
   //   })
   // }
 
-  
+
 
   handleSignUp = (e) => {
-    fetch(`${process.env.REACT_APP_APIURL}/users}`, {
+    fetch(`${process.env.REACT_APP_APIURL}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,16 +49,12 @@ class LandingPage extends Component {
     })
     .then(res => res.json())
     .then(data => {
+      console.log(`${process.env.REACT_APP_APIURL}/users`)
       return this.handleLogin()
     })
   }
 
   handleLogin = e => {
-    // this.setState({
-    //   loading: true
-    // })
-
-    // e.preventDefault()
     fetch(`${process.env.REACT_APP_APIURL}/login`, {
       method: "POST",
       headers: {
@@ -79,9 +75,7 @@ class LandingPage extends Component {
         console.log("logged in")
         this.props.loginUser(data)
         this.props.login()
-
       }
-
     })
   }
 
