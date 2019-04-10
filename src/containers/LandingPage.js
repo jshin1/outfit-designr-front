@@ -29,6 +29,8 @@ class LandingPage extends Component {
   //   })
   // }
 
+  
+
   handleSignUp = (e) => {
     fetch(`${process.env.REACT_APP_APIURL}/users}`, {
       method: "POST",
