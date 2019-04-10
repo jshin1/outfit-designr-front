@@ -1,17 +1,17 @@
-## OUTFIT DESIGNR (Frontend) README
+# OUTFIT DESIGNR (Frontend) README
 
-### Project Summary
+## Project Summary
 
 This is a fashion web application that allows users to coordinate their outfits based on a color scheme algorithm.
 
-### Stack
+## Stack
 
 React, Redux, JavaScript, Sass/CSS, Ruby on Rails
 
-### Link to Backend Repo
+## Link to Backend Repo
 
 https://github.com/jshin1/Outfit-Designr-API
 
-### Link to Video Demo
+## Link to Video Demo
 
 https://www.youtube.com/watch?v=ZTa_RSZKAps
