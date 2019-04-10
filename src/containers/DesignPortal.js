@@ -17,7 +17,7 @@ class DesignPortal extends Component {
   save = () => {
   const outfit = [this.props.filteredhats[this.state.hati].id, this.props.filteredtops[this.state.topi].id, this.props.filteredjackets[this.state.jacketi].id, this.props.filteredbottoms[this.state.bottomi].id, this.props.filteredshoes[this.state.shoesi].id]
 
-  fetch('http://localhost:3000/api/v1/outfits', {
+  fetch(`${process.env.REACT_APP_APIURL}/outfits`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

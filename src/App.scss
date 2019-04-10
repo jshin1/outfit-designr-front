@@ -626,6 +626,7 @@ animation: Gradient 15s ease infinite;
 
 .gallery {
   // background: skyblue;
+  position: relative;
   color: white;
   border-width: 3px;
   border-style: solid;
@@ -653,10 +654,11 @@ animation: Gradient 15s ease infinite;
   h3 {
     color: $dark-grey;
     // background: #fff;
-    font-size: 4rem;
-    // position: absolute;
-    // top: 1rem;
-    margin: 0;
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    margin: 0 1rem;
   }
 
   .outfit {

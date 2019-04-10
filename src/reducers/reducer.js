@@ -83,16 +83,16 @@ function reducer(state=initialState, action) {
     case 'ADD_SHOES':
       return {...state, myshoes: [...state.myshoes, action.payload]}
 
-      case 'SELECT_ALL_HATS':
-        return {...state, myhats: action.payload}
-      case 'SELECT_ALL_TOPS':
-        return {...state, mytops: action.payload}
-      case 'SELECT_ALL_JACKETS':
-        return {...state, myjackets: action.payload}
-      case 'SELECT_ALL_BOTTOMS':
-        return {...state, mybottoms: action.payload}
-      case 'SELECT_ALL_SHOES':
-        return {...state, myshoes: action.payload}
+    case 'SELECT_ALL_HATS':
+      return {...state, myhats: action.payload}
+    case 'SELECT_ALL_TOPS':
+      return {...state, mytops: action.payload}
+    case 'SELECT_ALL_JACKETS':
+      return {...state, myjackets: action.payload}
+    case 'SELECT_ALL_BOTTOMS':
+      return {...state, mybottoms: action.payload}
+    case 'SELECT_ALL_SHOES':
+      return {...state, myshoes: action.payload}
 
 
     case 'FILTER_HAT':

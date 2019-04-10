@@ -153,22 +153,6 @@ class ClothingPicker extends Component {
     }
   }
 
-
-
-  // showClothing = () => {
-  //   if (this.props.category === 'hat') {
-  //     return <img src={this.props.myhats[this.props.idx].image_url}/>
-  //   } else if (this.props.category === 'top') {
-  //     return <img src={this.props.mytops[this.props.idx].image_url}/>
-  //   } else if (this.props.category === 'jacket') {
-  //     return <img src={this.props.myjackets[this.props.idx].image_url}/>
-  //   } else if (this.props.category === 'bottom') {
-  //     return <img src={this.props.mybottoms[this.props.idx].image_url}/>
-  //   } else if (this.props.category === 'shoes') {
-  //     return <img src={this.props.myshoes[this.props.idx].image_url}/>
-  //   }
-  // }
-
   clickHandler = () => {
     if (this.props.category === 'hat') {
       this.props.chooseCurrent('hat')

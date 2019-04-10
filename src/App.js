@@ -15,7 +15,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    fetch('http://localhost:3000/api/v1/categories')
+    fetch(`${process.env.REACT_APP_APIURL}/categories`)
     .then(res => res.json())
     .then(data => {
       console.log(data)
@@ -37,10 +37,12 @@ class App extends Component {
       })
     })
 
-    fetch('http://localhost:3000/api/v1/colors')
+    fetch(`${process.env.REACT_APP_APIURL}/colors`)
     .then(res => res.json())
     .then(colors => {
-      colors.map(c => {
+      let toBeFiltered = ['white', 'grey', 'black']
+      let filteredColors = colors.filter(c => !toBeFiltered.includes(c.name))
+      filteredColors.map(c => {
         this.props.setColors(c)
       })
     })

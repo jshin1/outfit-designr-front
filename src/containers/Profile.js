@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class Profile extends Component {
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/outfits')
+    fetch(`${process.env.REACT_APP_APIURL}/outfits`)
     .then(res => res.json())
     .then(data => {
       let outfits = data.filter(outfit => outfit.user_id === this.props.user.id)
@@ -27,7 +27,7 @@ class Profile extends Component {
   }
 
   deleteOutfit = (event) => {
-    fetch(`http://localhost:3000/api/v1/outfits/${event.target.id}`, {
+    fetch(`${process.env.REACT_APP_APIURL}/outfits/${event.target.id}`, {
         method: 'DELETE'
     })
     this.props.setOutfit(this.props.myoutfits.filter(outfit => outfit.id != event.target.id))

@@ -14,7 +14,7 @@ class LandingPage extends Component {
   }
 
   // signIn = () => {
-  //   fetch('http://localhost:3000/api/v1/users')
+  //   fetch('process.env.REACT_APP_APIURL/users')
   //   .then(res => res.json())
   //   .then(users => {
   //     let foundUser = users.find(user => user.username === this.state.username)
@@ -30,7 +30,7 @@ class LandingPage extends Component {
   // }
 
   handleSignUp = (e) => {
-    fetch("http://localhost:3000/api/v1/users", {
+    fetch(`${process.env.REACT_APP_APIURL}/users}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ class LandingPage extends Component {
     // })
 
     // e.preventDefault()
-    fetch("http://localhost:3000/api/v1/login", {
+    fetch(`${process.env.REACT_APP_APIURL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
