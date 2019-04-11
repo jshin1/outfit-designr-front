@@ -236,6 +236,26 @@ goNext = () => {
     }
   }
 
+  resetIdx = () => {
+    this.setState({
+      hati: 0,
+      topi: 0,
+      jacketi: 0,
+      bottomi: 0,
+      shoesi: 0
+    })
+  }
+
+  handleColorSchemeChange = (event) => {
+    this.props.setColorScheme(event.target.value)
+    this.resetIdx()
+  }
+
+  handleColorChange = (event) => {
+    this.props.setPrimaryColor(event.target.value)
+    this.resetIdx()
+  }
+
   render() {
     return (
       <div className='design-portal'>
@@ -244,14 +264,14 @@ goNext = () => {
 
           <img src={require('../pics/colorwheel.png')} />
           {'Please select how you would like to match your outfit:'}<br/><br/>
-          <select className='dropdown' onChange={(event) => this.props.setColorScheme(event.target.value)}>
+        <select className='dropdown' onChange={(event) => this.handleColorSchemeChange(event)}>
           <option value='complementary'>complementary</option>
             <option value='analogous'>analogous</option>
             <option value='triadic'>triadic</option>
           </select><br/>
 
           {'What would you like your primary color to be?'}<br/><br/>
-          <select className='dropdown' onChange={(event) => this.props.setPrimaryColor(event.target.value)}>
+        <select className='dropdown' onChange={(event) => this.handleColorChange(event)}>
             {
               this.props.colors.map(c => <option value={c.name}>{c.name}</option>)
             }
@@ -275,18 +295,23 @@ goNext = () => {
         <div className='picker-container'>
         <ClothingPicker category='hat'
                         idx={this.state.hati}
+                        resetIdx={this.resetIdx}
         />
         <ClothingPicker category='top'
                         idx={this.state.topi}
+                        resetIdx={this.resetIdx}
         />
         <ClothingPicker category='jacket'
                         idx={this.state.jacketi}
+                        resetIdx={this.resetIdx}
         />
         <ClothingPicker category='bottom'
                         idx={this.state.bottomi}
+                        resetIdx={this.resetIdx}
         />
         <ClothingPicker category='shoes'
                         idx={this.state.shoesi}
+                        resetIdx={this.resetIdx}
         />
         </div>
       </div>

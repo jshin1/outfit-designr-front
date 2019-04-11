@@ -13,24 +13,6 @@ class LandingPage extends Component {
     bio: null
   }
 
-  // signIn = () => {
-  //   fetch('process.env.REACT_APP_APIURL/users')
-  //   .then(res => res.json())
-  //   .then(users => {
-  //     let foundUser = users.find(user => user.username === this.state.username)
-  //
-  //     if (foundUser) {
-  //       console.log(foundUser)
-  //       this.props.logInUser(foundUser)
-  //       // return <Redirect to='/profile'/>
-  //     } else {
-  //       console.log("???")
-  //     }
-  //   })
-  // }
-
-
-
   handleSignUp = (e) => {
     fetch(`${process.env.REACT_APP_APIURL}/users`, {
       method: "POST",
